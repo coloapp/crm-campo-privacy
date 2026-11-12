@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Vinculación Territorial - Brigadas Hugo Molina</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseSoft {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.92; }
+    }
+    .btn-pulse {
+      animation: pulseSoft 2.5s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-900 via-[#3a0809] to-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-4 font-sans antialiased">
+  
+  <div class="max-w-md w-full mx-auto my-auto space-y-5 text-center">
+    <!-- Encabezado Institucional -->
+    <div class="space-y-2">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-[#7B1113] border-2 border-red-400/40 shadow-xl shadow-red-950/50 text-3xl">
+        🗳️
+      </div>
+      <h1 class="text-2xl font-black tracking-tight text-white">BRIGADAS HUGO MOLINA</h1>
+      <p class="text-xs uppercase font-bold tracking-widest text-red-300">Sistema Territorial · Apatzingán 2027</p>
+    </div>
+
+    <!-- Tarjeta Principal de Vinculación -->
+    <div id="card-principal" class="bg-white/95 backdrop-blur-md text-slate-900 rounded-3xl p-6 shadow-2xl border border-white/20 text-left space-y-4">
+      
+      <!-- Estado de Carga / Detección -->
+      <div id="estado-cargando" class="text-center py-6 space-y-3">
+        <div class="inline-block w-8 h-8 border-4 border-[#7B1113] border-t-transparent rounded-full animate-spin"></div>
+        <p class="text-xs font-bold text-slate-600">Verificando pase de acceso territorial...</p>
+      </div>
+
+      <!-- Ficha de Usuario Detectado -->
+      <div id="ficha-usuario" class="hidden space-y-4">
+        <div class="text-center pb-3 border-b border-slate-100">
+          <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[11px] font-black uppercase tracking-wider mb-2">
+            ✅ Credencial Oficial Verificada
+          </span>
+          <h2 id="txt-nombre" class="text-xl font-black text-slate-900 leading-tight">Cargando...</h2>
+          <p id="txt-rol" class="text-xs font-bold text-[#7B1113] mt-0.5">Brigadista de Campo</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/80 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500 font-medium">Sección Asignada:</span>
+            <span id="txt-seccion" class="font-black text-[#7B1113]">Secc. 058</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500 font-medium">Colonia / Zona:</span>
+            <span id="txt-colonia" class="font-bold text-slate-800">Babilonia</span>
+          </div>
+          <div class="flex justify-between items-center pt-1.5 border-t border-slate-200">
+            <span class="text-slate-500 font-medium">PIN de Acceso:</span>
+            <span class="font-mono font-black text-slate-700 bg-white px-2 py-0.5 rounded border border-slate-200">•••• (Cargado)</span>
+          </div>
+        </div>
+
+        <!-- Botón Principal: Abrir App Directamente -->
+        <div class="space-y-2 pt-2">
+          <a id="btn-abrir-app" href="#"
+            class="w-full py-4 bg-[#7B1113] hover:bg-[#991b1b] active:scale-95 text-white font-black text-sm rounded-2xl shadow-lg shadow-red-900/40 flex items-center justify-center gap-2 transition btn-pulse text-center">
+            <span>🚀</span> ABRIR Y ACTIVAR MI APP
+          </a>
+          
+          <button id="btn-copiar-token" type="button" onclick="copiarCredencialManual()"
+            class="w-full py-3 bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 font-bold text-xs rounded-xl border border-slate-200 flex items-center justify-center gap-2 transition">
+            <span id="icon-copiar">📋</span> <span id="label-copiar">Copiar Token al Portapapeles</span>
+          </button>
+        </div>
+
+        <div class="text-[11px] text-slate-500 text-center leading-relaxed">
+          Al tocar <strong>"ABRIR Y ACTIVAR"</strong> tu aplicación se iniciará configurada y lista para encuestar.
+        </div>
+      </div>
+
+      <!-- Caso: Sin Token o Inválido -->
+      <div id="ficha-sin-token" class="hidden text-center py-4 space-y-3">
+        <div class="text-4xl">⚠️</div>
+        <h3 class="font-black text-slate-900 text-base">Enlace de acceso incompleto</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Para activar tu app necesitas un enlace emitido por la Coordinación de Brigadas Hugo Molina. Solicita tu enlace de acceso personal a tu Coordinador de Sección.
+        </p>
+        <a href="https://play.google.com/store/apps/details?id=com.hugomolina.crmcampo" target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold shadow hover:bg-black transition">
+          <span>📲</span> Descargar App en Play Store
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Pie de página -->
+    <div class="text-center text-[10px] text-slate-400 space-y-1">
+      <p>Apatzingán, Michoacán · Coordinación Territorial</p>
+      <p class="text-slate-500">Tecnología Móvil Segura Offline-First</p>
+    </div>
+  </div>
+
+  <script>
+    let tokenCifradoGlobal = '';
+
+    function obtenerTokenUrl() {
+      // 1. Buscar en hash (#token=HM_AUTH:... o #HM_AUTH:...)
+      const hash = window.location.hash || '';
+      if (hash) {
+        const hClean = hash.replace(/^#/, '');
+        if (hClean.startsWith('token=')) return decodeURIComponent(hClean.replace('token=', ''));
+        if (hClean.startsWith('HM_AUTH:')) return decodeURIComponent(hClean);
+      }
+      // 2. Buscar en search query (?token=HM_AUTH:...)
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('token')) return params.get('token');
+      return '';
+    }
+
+    function decodificarToken(token) {
+      try {
+        let raw = token.trim();
+        if (raw.startsWith('HM_AUTH:')) raw = raw.replace('HM_AUTH:', '');
+        let decoded = '';
+        try {
+          decoded = decodeURIComponent(escape(atob(raw)));
+        } catch (e) {
+          decoded = atob(raw);
+        }
+        return JSON.parse(decoded);
+      } catch (err) {
+        console.error('Error decodificando token:', err);
+        return null;
+      }
+    }
+
+    function inicializar() {
+      const token = obtenerTokenUrl();
+      const divCargando = document.getElementById('estado-cargando');
+      const divUsuario = document.getElementById('ficha-usuario');
+      const divSinToken = document.getElementById('ficha-sin-token');
+
+      if (!token) {
+        divCargando.classList.add('hidden');
+        divSinToken.classList.remove('hidden');
+        return;
+      }
+
+      tokenCifradoGlobal = token;
+      const datos = decodificarToken(token);
+
+      if (!datos || !datos.id) {
+        divCargando.classList.add('hidden');
+        divSinToken.classList.remove('hidden');
+        return;
+      }
+
+      // Mostrar datos del usuario
+      document.getElementById('txt-nombre').textContent = datos.nombre || 'Integrante de Campo';
+      const rolTxt = datos.rol === 'brigadista' ? 'Brigadista Territorial' : (datos.rol || 'Coordinador');
+      document.getElementById('txt-rol').textContent = rolTxt;
+      document.getElementById('txt-seccion').textContent = 'Secc. ' + (datos.seccion || '058');
+      document.getElementById('txt-colonia').textContent = datos.colonia || 'Apatzingán';
+
+      // Configurar enlace de apertura
+      const deepLink = `crmcampo://vincular?token=${encodeURIComponent(token)}`;
+      const intentUrl = `intent://vincular?token=${encodeURIComponent(token)}#Intent;scheme=crmcampo;package=com.hugomolina.crmcampo;end;`;
+      
+      const btnAbrir = document.getElementById('btn-abrir-app');
+      // Intentar primero con intent URL en Android Chrome para lanzar la app instalada
+      btnAbrir.href = intentUrl;
+      btnAbrir.onclick = function(e) {
+        // Copiar preventivamente al portapapeles por si la app lo lee al enfocarse
+        try { navigator.clipboard.writeText(token); } catch(err){}
+        setTimeout(() => {
+          // Fallback a custom scheme si no responde el intent
+          window.location.href = deepLink;
+        }, 300);
+      };
+
+      // Copiar silenciosamente al portapapeles
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(token).catch(() => {});
+        }
+      } catch (e) {}
+
+      divCargando.classList.add('hidden');
+      divUsuario.classList.remove('hidden');
+
+      // Intentar auto-abrir después de 600ms
+      setTimeout(() => {
+        try {
+          window.location.href = intentUrl;
+        } catch(e) {}
+      }, 600);
+    }
+
+    function copiarCredencialManual() {
+      if (!tokenCifradoGlobal) return;
+      const icon = document.getElementById('icon-copiar');
+      const label = document.getElementById('label-copiar');
+      try {
+        navigator.clipboard.writeText(tokenCifradoGlobal).then(() => {
+          icon.textContent = '✅';
+          label.textContent = '¡Copiado con éxito!';
+          setTimeout(() => {
+            icon.textContent = '📋';
+            label.textContent = 'Copiar Token al Portapapeles';
+          }, 2500);
+        });
+      } catch (e) {
+        prompt('Copia este código de acceso:', tokenCifradoGlobal);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', inicializar);
+  </script>
+</body>
+</html>
