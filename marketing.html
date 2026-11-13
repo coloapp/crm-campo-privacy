@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brigadas Hugo Molina · Juntos Hacemos el Cambio en Apatzingán</title>
+  <meta name="description" content="Portal oficial y sistema territorial de brigadas de Hugo Molina en Apatzingán, Michoacán. Reporte de servicios públicos, comités vecinales, reciclaje y organización ciudadana.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7B1113;
+      --primary-dark: #560a0b;
+      --primary-light: #fdf2f2;
+      --gold: #D4AF37;
+      --gold-dark: #aa8620;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navbar */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.85rem 1.5rem;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(123, 17, 19, 0.2);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    .btn-nav-primary {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(123, 17, 19, 0.25);
+    }
+    .btn-nav-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(145deg, #7B1113 0%, #4a0708 100%);
+      color: #ffffff;
+      padding: 5rem 1.5rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 840px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: #fef08a;
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span {
+      color: #fde047;
+      text-decoration: underline;
+      text-decoration-color: rgba(253, 224, 71, 0.5);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 2.25rem;
+      color: #fdf2f2;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-hero-apple {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .btn-hero-apple:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+    .btn-hero-outline {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn-hero-outline:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    /* Section Headings */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+    }
+    .section-tag {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px -8px rgba(123, 17, 19, 0.12);
+      border-color: #fecaca;
+    }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 1rem;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #fecaca;
+    }
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.65rem;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Quote Banner */
+    .quote-banner {
+      background: linear-gradient(135deg, #fdf2f2 0%, #fff7ed 100%);
+      border: 2px dashed #fca5a5;
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin: 4.5rem 0 2rem;
+      text-align: center;
+    }
+    .quote-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .quote-author {
+      font-weight: 700;
+      color: #991b1b;
+      font-size: 1rem;
+    }
+    .quote-sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Privacy & Security Spotlight */
+    .privacy-spotlight {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .privacy-spotlight h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .privacy-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .badge-pill {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 3.5rem 1.5rem 2.5rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #334155;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-col {
+      flex: 1 1 240px;
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .footer-col p {
+      line-height: 1.6;
+      font-size: 0.85rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #fde047;
+    }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .quote-text { font-size: 1.25rem; }
+      .container { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="assets/img/icon-512.png" alt="Logotipo HM" onerror="this.src='politica_privacidad.html'">
+        <span>Brigadas Hugo Molina</span>
+      </a>
+      <div class="nav-links">
+        <a href="#pilares" class="nav-link">Pilares</a>
+        <a href="#comunidad" class="nav-link">Comunidad</a>
+        <a href="politica_privacidad.html" class="nav-link">Privacidad</a>
+        <a href="https://appstoreconnect.apple.com" class="btn-nav-primary">Descargar App</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        🏛️ Apatzingán, Michoacán · Proyecto 2027
+      </div>
+      <h1>De la mano de <span>Hugo Molina</span>, juntos hacemos el cambio</h1>
+      <p>
+        El Sistema Territorial de Brigadas y Portal Vecinal que conecta a las familias de Apatzingán para resolver las problemáticas de cada colonia, transparentar la obra pública y construir un municipio próspero.
+      </p>
+      <div class="hero-cta">
+        <a href="#comunidad" class="btn-hero btn-hero-apple">
+          <span>📲</span> Explorar la Aplicación
+        </a>
+        <a href="politica_privacidad.html" class="btn-hero btn-hero-outline">
+          <span>🛡️</span> Aviso de Privacidad
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <div class="section-header" id="pilares">
+      <div class="section-tag">Participación Activa</div>
+      <h2 class="section-title">Tecnología al Servicio de Cada Colonia</h2>
+      <p class="section-subtitle">
+        Una herramienta diseñada para que las decisiones importantes se tomen escuchando de viva voz a la ciudadanía.
+      </p>
+    </div>
+
+    <!-- Features -->
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">📢</div>
+        <h3 class="feature-title">Embudo de Demandas Vecinales</h3>
+        <p class="feature-desc">
+          Reporta directamente baches, fallas en luminarias, fugas de agua potable o falta de recolección en tu calle con georreferenciación precisa para darle seguimiento puntual y sin burocracia.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3 class="feature-title">Comités de Colonos y Obra Social</h3>
+        <p class="feature-desc">
+          Organización comunitaria transparente: postulaciones vecinales para Presidente de Colonia, Consejero de Obra Pública y Tesorero Ciudadano para auditar cada peso invertido en tu zona.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">♻️</div>
+        <h3 class="feature-title">Reciclaje y Biodigestores</h3>
+        <p class="feature-desc">
+          Centros móviles de reciclaje en caja de tráiler para PET, cartón, aluminio y vidrio, sumados a biodigestores comunitarios para transformar residuos orgánicos en biogás y biofertilizante.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🥇</div>
+        <h3 class="feature-title">Eco-Ranking de Colonias</h3>
+        <p class="feature-desc">
+          Premio al esfuerzo colectivo. Las colonias más organizadas, limpias y participativas obtienen medallas de honor y prioridad asignada en presupuestos participativos municipales.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🗺️</div>
+        <h3 class="feature-title">Cartografía Seccional Offline</h3>
+        <p class="feature-desc">
+          Operación 100% garantizada en campo sin depender de señal de internet. Mapas seccionales oficiales de Apatzingán con almacenamiento seguro en el dispositivo móvil.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Canal Directo de Hugo Molina</h3>
+        <p class="feature-desc">
+          Alertas territoriales, confirmaciones automáticas de folios comunitarios vía WhatsApp y comunicación abierta de las brigadas con la dirigencia de la campaña.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Quote Banner -->
+    <div class="quote-banner" id="comunidad">
+      <div class="quote-text">
+        «¡Con Hugo Hasta Donde Tope! Porque la verdadera transformación no se dicta desde una oficina: se construye caminando juntos cada colonia, cada ejido y cada tenencia de nuestro querido Apatzingán.»
+      </div>
+      <div class="quote-author">Hugo Molina</div>
+      <div class="quote-sub">Liderazgo Territorial · Proyecto Apatzingán 2027</div>
+    </div>
+
+    <!-- Security & Privacy Spotlight -->
+    <div class="privacy-spotlight">
+      <h3>🛡️ Compromiso con la Privacidad y la Transparencia</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        La aplicación <strong>Brigadas Hugo Molina</strong> ha sido desarrollada bajo la filosofía <em>Offline-First</em>: la información se procesa localmente en el teléfono, sin compartir tus datos personales con redes publicitarias ni intermediarios comerciales.
+      </p>
+      <div class="privacy-badges">
+        <span class="badge-pill">🔒 Cifrado AES-256</span>
+        <span class="badge-pill">🚫 Política Zero-Sell (Cero Venta de Datos)</span>
+        <span class="badge-pill">📵 Sin Rastreo Publicitario (No IDFA)</span>
+        <span class="badge-pill">📜 Cumplimiento LFPDPPP & Apple Guidelines</span>
+      </div>
+      <div>
+        <a href="politica_privacidad.html" style="color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.9rem;">
+          Consultar el Aviso de Privacidad Completo &rarr;
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="color: #ffffff;">Brigadas Hugo Molina</h4>
+        <p>Sistema Territorial de Brigadas y Diagnóstico Social Comunitario en el Municipio de Apatzingán, Michoacán, México.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces de Interés</h4>
+        <ul class="footer-links">
+          <li><a href="politica_privacidad.html">Aviso de Privacidad</a></li>
+          <li><a href="https://instagram.com/hugomolina09" target="_blank" rel="noopener">Instagram Oficial (@hugomolina09)</a></li>
+          <li><a href="https://tiktok.com/@hugomolina9" target="_blank" rel="noopener">TikTok Oficial (@hugomolina9)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto y Soporte</h4>
+        <p>📍 Apatzingán, Michoacán, México</p>
+        <p>✉️ <a href="mailto:soporte@hugomolina.mx" style="color: #cbd5e1;">soporte@hugomolina.mx</a></p>
+        <p>📱 WhatsApp: <strong>+52 33 1774 2619</strong></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026-2027 Movimiento Territorial Hugo Molina · Apatzingán, Michoacán · Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>

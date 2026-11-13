@@ -166,9 +166,14 @@
 <body>
 
   <header>
-    <div class="badge-app">Aplicación Móvil Oficial · Google Play Store</div>
+    <div class="badge-app">Aplicación Móvil Oficial · iOS & Android</div>
     <h1>Aviso de Privacidad y Protección de Datos</h1>
     <p class="subtitle">Sistema Territorial de Posicionamiento y Brigadas · Hugo Molina (Apatzingán, Michoacán)</p>
+    <div style="margin-top: 1rem;">
+      <a href="marketing.html" style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #ffffff; padding: 0.45rem 1rem; border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 700;">
+        <span>🌐</span> Conoce el Proyecto Ciudadano de Hugo Molina &rarr;
+      </a>
+    </div>
   </header>
 
   <div class="container">
@@ -198,11 +203,11 @@
         El <strong>Equipo Territorial de Campaña de Hugo Molina</strong>, con presencia en el Municipio de Apatzingán, Michoacán, México, es el responsable del tratamiento legítimo, confidencial e informado de los datos recabados a través de la aplicación móvil <strong>Brigadas Hugo Molina - Apatzingán</strong> (en adelante "la Aplicación").
       </p>
       <p>
-        El presente documento cumple con los lineamientos de la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>, así como con las políticas de privacidad y datos de usuario de <strong>Google Play Store</strong>.
+        El presente documento cumple con los lineamientos de la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>, así como con las políticas de privacidad y protección de datos de <strong>Apple App Store</strong> y <strong>Google Play Store</strong>.
       </p>
 
       <h2>2. Datos Personales Recabados</h2>
-      <p>La Aplicación recopila información con fines estrictamente organizativos y de diagnóstico territorial en Apatzingán:</p>
+      <p>La Aplicación opera bajo un modelo de recolección local (Offline-First) y diagnóstico territorial en Apatzingán:</p>
       <ul>
         <li>
           <strong>Datos de Ubicación Geográfica (GPS / Satelital GNSS):</strong> Se recaban coordenadas de latitud y longitud <em>únicamente en primer plano</em> en el instante exacto en que el brigadista guarda una encuesta ciudadana o marca un predio (obra negra, deshabitada, sin respuesta). La aplicación <strong>NO</strong> realiza seguimiento en segundo plano ni monitorea la posición del usuario de forma continua.
@@ -231,26 +236,38 @@
         <li>Organizar y validar el padrón interno de brigadistas y defensores de casilla autorizados.</li>
       </ul>
 
-      <h2>4. Permisos Requeridos en el Dispositivo Android</h2>
+      <h2>4. Permisos Requeridos en el Dispositivo (iOS y Android)</h2>
       <p>Para su correcto funcionamiento, la Aplicación solicita acceso a las siguientes capacidades del sistema:</p>
       <ul>
         <li>
-          <strong>ACCESS_FINE_LOCATION y ACCESS_COARSE_LOCATION:</strong> Utilizado exclusivamente para geolocalizar el predio o domicilio de la encuesta y ubicarlo en la sección electoral del INE correspondiente.
+          <strong>Ubicación Geográfica en Primer Plano (iOS: <code>NSLocationWhenInUseUsageDescription</code> / Android: <code>ACCESS_FINE_LOCATION</code>):</strong> 
+          Utilizado exclusivamente para geolocalizar el predio o domicilio en el momento de la encuesta y ubicarlo en la sección electoral correspondiente. No se realiza rastreo en segundo plano ni continuo.
         </li>
         <li>
-          <strong>CAMERA:</strong> Utilizado únicamente para el escaneo de códigos QR de vinculación institucional de brigadistas y sincronización criptográfica. No almacena imágenes en servidores ajenos.
+          <strong>Cámara (iOS: <code>NSCameraUsageDescription</code> / Android: <code>CAMERA</code>):</strong> 
+          Utilizado únicamente para el escaneo óptico de credenciales y códigos QR de vinculación institucional de brigadistas. No almacena fotografías del usuario en servidores externos.
         </li>
         <li>
-          <strong>INTERNET y ACCESS_NETWORK_STATE:</strong> Para la sincronización cifrada de paquetes de datos hacia la base de datos central de coordinación territorial.
+          <strong>Conectividad de Red (Internet):</strong> 
+          Para la sincronización cifrada de paquetes y descarga de cartografía vectorial base.
         </li>
       </ul>
 
-      <h2>5. Almacenamiento Seguro y Medidas de Cifrado (Offline-First)</h2>
+      <h2>5. Política de No Rastreo (Cumplimiento Estricto Apple iOS & Google)</h2>
+      <p>En estricto apego a las directrices de privacidad de <strong>Apple (App Store Review Guidelines 5.1.1 y 5.1.2)</strong> y <strong>Google Play</strong>:</p>
+      <ul>
+        <li><strong>Sin Rastreo de Usuario (No Tracking):</strong> La Aplicación NO rastrea la actividad del usuario a través de aplicaciones o sitios web de terceros.</li>
+        <li><strong>Sin Identificadores Publicitarios:</strong> NO se recopila el Identificador de Publicidad de Apple (<code>IDFA</code>) ni el ID de publicidad de Google (<code>GAID</code>).</li>
+        <li><strong>Sin Analíticas Comerciales Invasivas:</strong> No se integran SDKs de publicidad, venta de audiencias, mercadotecnia ni intermediarios de datos (data brokers).</li>
+        <li><strong>Operación de Trabajo Local:</strong> La app funciona como una herramienta de campo; el usuario brigadista registra información localmente en su dispositivo y la exporta de forma controlada y voluntaria.</li>
+      </ul>
+
+      <h2>6. Almacenamiento Seguro y Medidas de Cifrado (Offline-First)</h2>
       <p>
         La aplicación implementa una arquitectura <strong>Offline-First</strong>: los datos se resguardan de manera local en el dispositivo del brigadista dentro de almacenes cifrados (IndexedDB y SQLite local). La transmisión hacia el centro de cómputo de coordinación se efectúa mediante paquetes cifrados punto a punto con llaves criptográficas seguras (AES-256 / SHA-256), impidiendo el acceso a terceros no autorizados.
       </p>
 
-      <h2>6. Derechos ARCO y Mecanismo para la Eliminación de Datos</h2>
+      <h2>7. Derechos ARCO y Mecanismo para la Eliminación de Datos</h2>
       <p>
         Cualquier ciudadano, brigadista o voluntario tiene derecho en todo momento a ejercer sus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (ARCO)</strong>, así como a solicitar la <strong>eliminación total inmediata</strong> de sus datos personales de nuestros registros.
       </p>
@@ -273,9 +290,9 @@
         </p>
       </div>
 
-      <h2>7. Modificaciones al Aviso de Privacidad</h2>
+      <h2>8. Modificaciones al Aviso de Privacidad</h2>
       <p>
-        Nos reservamos el derecho de actualizar el presente Aviso de Privacidad para reflejar mejoras operativas o adecuarlo a requerimientos normativos de Google Play Store. Las modificaciones se publicarán en esta misma URL oficial para consulta pública permanente.
+        Nos reservamos el derecho de actualizar el presente Aviso de Privacidad para reflejar mejoras operativas o adecuarlo a requerimientos normativos de Apple App Store y Google Play Store. Las modificaciones se publicarán en esta misma URL oficial para consulta pública permanente.
       </p>
 
     </div>
@@ -287,3 +304,4 @@
 
 </body>
 </html>
+
