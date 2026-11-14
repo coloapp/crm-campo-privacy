@@ -8,23 +8,23 @@
   <style>
     @keyframes pulseSoft {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.03); opacity: 0.92; }
+      50% { transform: scale(1.02); opacity: 0.95; }
     }
     .btn-pulse {
-      animation: pulseSoft 2.5s infinite ease-in-out;
+      animation: pulseSoft 2.2s infinite ease-in-out;
     }
   </style>
 </head>
 <body class="bg-gradient-to-b from-slate-900 via-[#3a0809] to-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-4 font-sans antialiased">
   
-  <div class="max-w-md w-full mx-auto my-auto space-y-5 text-center">
+  <div class="max-w-md w-full mx-auto my-auto space-y-4 text-center py-4">
     <!-- Encabezado Institucional -->
-    <div class="space-y-2">
+    <div class="space-y-1.5">
       <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-[#7B1113] border-2 border-red-400/40 shadow-xl shadow-red-950/50 text-3xl">
         🗳️
       </div>
       <h1 class="text-2xl font-black tracking-tight text-white">BRIGADAS HUGO MOLINA</h1>
-      <p class="text-xs uppercase font-bold tracking-widest text-red-300">Sistema Territorial · Apatzingán 2027</p>
+      <p class="text-[11px] uppercase font-bold tracking-widest text-red-300">Sistema Territorial · Apatzingán 2027</p>
     </div>
 
     <!-- Tarjeta Principal de Vinculación -->
@@ -61,22 +61,41 @@
           </div>
         </div>
 
-        <!-- Botón Principal: Abrir App Directamente -->
-        <div class="space-y-2 pt-2">
-          <a id="btn-abrir-app" href="#"
-            class="w-full py-4 bg-[#7B1113] hover:bg-[#991b1b] active:scale-95 text-white font-black text-sm rounded-2xl shadow-lg shadow-red-900/40 flex items-center justify-center gap-2 transition btn-pulse text-center">
+        <!-- Acciones Principales -->
+        <div class="space-y-2.5 pt-1">
+          <!-- Botón 1: Abrir App Directamente si ya está instalada -->
+          <button id="btn-abrir-app" type="button" onclick="lanzarAppInstalada()"
+            class="w-full py-3.5 bg-[#7B1113] hover:bg-[#991b1b] active:scale-95 text-white font-black text-sm rounded-2xl shadow-lg shadow-red-900/40 flex items-center justify-center gap-2 transition btn-pulse text-center">
             <span>🚀</span> ABRIR Y ACTIVAR MI APP
-          </a>
+          </button>
           
+          <!-- Botón 2: Copiar Token al Portapapeles -->
           <button id="btn-copiar-token" type="button" onclick="copiarCredencialManual()"
             class="w-full py-3 bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 font-bold text-xs rounded-xl border border-slate-200 flex items-center justify-center gap-2 transition">
-            <span id="icon-copiar">📋</span> <span id="label-copiar">Copiar Token al Portapapeles</span>
+            <span id="icon-copiar">📋</span> <span id="label-copiar">Copiar Código de Acceso</span>
           </button>
         </div>
 
-        <div class="text-[11px] text-slate-500 text-center leading-relaxed">
-          Al tocar <strong>"ABRIR Y ACTIVAR"</strong> tu aplicación se iniciará configurada y lista para encuestar.
+        <div id="aviso-portapapeles" class="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-center font-medium">
+          ✨ Tu código ya fue copiado al portapapeles. Solo abre tu app de <strong>Brigadas Hugo Molina</strong> en este celular y entrarás automáticamente.
         </div>
+
+        <!-- Sección de Ayuda si no la tiene instalada -->
+        <div class="pt-3 border-t border-slate-100 space-y-2 text-center">
+          <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">
+            ¿Aún no tienes la app en este celular?
+          </p>
+          <div class="flex flex-col gap-2">
+            <a href="https://play.google.com/store/apps/details?id=com.hugomolina.crmcampo.p1" target="_blank"
+              class="w-full py-2 bg-slate-900 hover:bg-black text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition">
+              <span>📲</span> Ver en Google Play Store
+            </a>
+          </div>
+          <p class="text-[10px] text-slate-400">
+            * Si en Play Store te dice que no está disponible, solicita a tu Coordinador el archivo APK directo para instalación por USB / WhatsApp.
+          </p>
+        </div>
+
       </div>
 
       <!-- Caso: Sin Token o Inválido -->
@@ -86,16 +105,16 @@
         <p class="text-xs text-slate-600 leading-relaxed">
           Para activar tu app necesitas un enlace emitido por la Coordinación de Brigadas Hugo Molina. Solicita tu enlace de acceso personal a tu Coordinador de Sección.
         </p>
-        <a href="https://play.google.com/store/apps/details?id=com.hugomolina.crmcampo" target="_blank"
+        <a href="https://play.google.com/store/apps/details?id=com.hugomolina.crmcampo.p1" target="_blank"
           class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold shadow hover:bg-black transition">
-          <span>📲</span> Descargar App en Play Store
+          <span>📲</span> Buscar en Play Store
         </a>
       </div>
 
     </div>
 
     <!-- Pie de página -->
-    <div class="text-center text-[10px] text-slate-400 space-y-1">
+    <div class="text-center text-[10px] text-slate-400 space-y-0.5">
       <p>Apatzingán, Michoacán · Coordinación Territorial</p>
       <p class="text-slate-500">Tecnología Móvil Segura Offline-First</p>
     </div>
@@ -135,6 +154,50 @@
       }
     }
 
+    function lanzarAppInstalada() {
+      if (!tokenCifradoGlobal) return;
+      
+      // 1. Asegurar copia en portapapeles
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(tokenCifradoGlobal).catch(() => {});
+        }
+      } catch (e) {}
+
+      // 2. Intentar abrir mediante Custom Scheme registrado en Capacitor (crmcampo://vincular)
+      const deepLink = `crmcampo://vincular?token=${encodeURIComponent(tokenCifradoGlobal)}`;
+      
+      // 3. Intent de Android con paquete oficial com.hugomolina.crmcampo.p1
+      const intentUrl = `intent://vincular?token=${encodeURIComponent(tokenCifradoGlobal)}#Intent;scheme=crmcampo;package=com.hugomolina.crmcampo.p1;end;`;
+
+      // En Android usamos intent con fallback suave, en iOS usamos el scheme directo
+      const esAndroid = /android/i.test(navigator.userAgent || '');
+      
+      if (esAndroid) {
+        window.location.href = intentUrl;
+      } else {
+        window.location.href = deepLink;
+      }
+    }
+
+    function copiarCredencialManual() {
+      if (!tokenCifradoGlobal) return;
+      const icon = document.getElementById('icon-copiar');
+      const label = document.getElementById('label-copiar');
+      try {
+        navigator.clipboard.writeText(tokenCifradoGlobal).then(() => {
+          icon.textContent = '✅';
+          label.textContent = '¡Copiado con éxito!';
+          setTimeout(() => {
+            icon.textContent = '📋';
+            label.textContent = 'Copiar Código de Acceso';
+          }, 2500);
+        });
+      } catch (e) {
+        prompt('Copia este código de acceso territorial:', tokenCifradoGlobal);
+      }
+    }
+
     function inicializar() {
       const token = obtenerTokenUrl();
       const divCargando = document.getElementById('estado-cargando');
@@ -163,23 +226,7 @@
       document.getElementById('txt-seccion').textContent = 'Secc. ' + (datos.seccion || '058');
       document.getElementById('txt-colonia').textContent = datos.colonia || 'Apatzingán';
 
-      // Configurar enlace de apertura
-      const deepLink = `crmcampo://vincular?token=${encodeURIComponent(token)}`;
-      const intentUrl = `intent://vincular?token=${encodeURIComponent(token)}#Intent;scheme=crmcampo;package=com.hugomolina.crmcampo;end;`;
-      
-      const btnAbrir = document.getElementById('btn-abrir-app');
-      // Intentar primero con intent URL en Android Chrome para lanzar la app instalada
-      btnAbrir.href = intentUrl;
-      btnAbrir.onclick = function(e) {
-        // Copiar preventivamente al portapapeles por si la app lo lee al enfocarse
-        try { navigator.clipboard.writeText(token); } catch(err){}
-        setTimeout(() => {
-          // Fallback a custom scheme si no responde el intent
-          window.location.href = deepLink;
-        }, 300);
-      };
-
-      // Copiar silenciosamente al portapapeles
+      // Copiar preventivamente al portapapeles de manera silenciosa
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(token).catch(() => {});
@@ -188,31 +235,6 @@
 
       divCargando.classList.add('hidden');
       divUsuario.classList.remove('hidden');
-
-      // Intentar auto-abrir después de 600ms
-      setTimeout(() => {
-        try {
-          window.location.href = intentUrl;
-        } catch(e) {}
-      }, 600);
-    }
-
-    function copiarCredencialManual() {
-      if (!tokenCifradoGlobal) return;
-      const icon = document.getElementById('icon-copiar');
-      const label = document.getElementById('label-copiar');
-      try {
-        navigator.clipboard.writeText(tokenCifradoGlobal).then(() => {
-          icon.textContent = '✅';
-          label.textContent = '¡Copiado con éxito!';
-          setTimeout(() => {
-            icon.textContent = '📋';
-            label.textContent = 'Copiar Token al Portapapeles';
-          }, 2500);
-        });
-      } catch (e) {
-        prompt('Copia este código de acceso:', tokenCifradoGlobal);
-      }
     }
 
     window.addEventListener('DOMContentLoaded', inicializar);
