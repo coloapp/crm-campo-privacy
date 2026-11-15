@@ -231,11 +231,14 @@
           </div>
         </div>
         <div class="flex flex-wrap items-center gap-2">
+          <button onclick="verMiReciboCompleto()" class="px-4 py-2.5 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs transition flex items-center gap-1.5 shadow-xs">
+            <span>📜</span> Ver Mi Recibo
+          </button>
           <button onclick="compartirSondeoWhatsApp()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition flex items-center gap-2">
             <span>📲</span> Compartir en WhatsApp
           </button>
-          <a href="#verificador-folio" class="px-4 py-2.5 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs transition">
-            🔍 Ver Detalles de Auditoría
+          <a href="#verificador-folio" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition">
+            🔍 Ver Auditoría
           </a>
         </div>
       </div>
@@ -392,6 +395,73 @@
   </main>
 
   <!-- ========================================== -->
+  <!-- MODAL DE IDENTIFICACIÓN CIUDADANA          -->
+  <!-- ========================================== -->
+  <div id="modal-registro-ciudadano" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border-2 border-slate-200 space-y-4 text-center">
+      <div class="w-12 h-12 rounded-2xl bg-guinda/10 text-guinda border border-guinda/30 flex items-center justify-center text-2xl mx-auto">
+        ✍️
+      </div>
+
+      <div>
+        <h4 class="text-lg font-black text-slate-900">Certificación de tu Voto</h4>
+        <p class="text-xs text-slate-500 mt-1">
+          Ingresa tus datos para validar tu participación como ciudadano real y recibir tu acuse foliado.
+        </p>
+      </div>
+
+      <!-- Preview del Candidato Seleccionado -->
+      <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs text-left">
+        <div>
+          <span class="block text-[10px] text-slate-400 font-bold uppercase">Opción Elegida</span>
+          <strong id="modal-reg-candidato-nombre" class="text-slate-900 font-black text-sm">Hugo Molina</strong>
+        </div>
+        <span id="modal-reg-sentido-badge" class="px-2.5 py-1 rounded-xl text-xs font-black bg-emerald-100 text-emerald-800">
+          👍 A FAVOR (+1)
+        </span>
+      </div>
+
+      <!-- Formulario Ciudadano -->
+      <form onsubmit="event.preventDefault(); confirmarVotoConDatos();" class="space-y-3 text-left">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">
+            Tu Nombre Completo: <span class="text-rose-500">*</span>
+          </label>
+          <input type="text" id="input-voto-nombre" placeholder="Ej. Carlos Mendoza González" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-guinda focus:ring-2 focus:ring-guinda/20 text-xs font-semibold text-slate-900 outline-none transition">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">
+            WhatsApp / Celular (10 dígitos): <span class="text-rose-500">*</span>
+          </label>
+          <input type="tel" id="input-voto-whatsapp" placeholder="Ej. 4531234567" maxlength="10" pattern="[0-9]{10}" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-guinda focus:ring-2 focus:ring-guinda/20 text-xs font-mono font-bold text-slate-900 outline-none transition">
+          <span class="block text-[10px] text-slate-400 mt-0.5">Permite verificar un solo voto por persona y enviarte tu folio oficial.</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">
+            Colonia en Apatzingán: <span class="text-slate-400 font-normal">(Opcional)</span>
+          </label>
+          <input type="text" id="input-voto-colonia" placeholder="Ej. Col. Ferrocarrilera, Babilonia, Centro..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-guinda focus:ring-2 focus:ring-guinda/20 text-xs font-medium text-slate-900 outline-none transition">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5 pt-2">
+          <button type="button" onclick="cerrarModalRegistroCiudadano()" class="py-2.5 px-4 rounded-xl font-bold text-xs text-slate-600 bg-slate-100 hover:bg-slate-200 transition">
+            Cancelar
+          </button>
+          <button type="submit" class="py-2.5 px-4 rounded-xl font-black text-xs text-white bg-guinda hover:bg-guindaDark shadow-md transition flex items-center justify-center gap-1.5 active:scale-95">
+            <span>🔒</span> Certificar Voto
+          </button>
+        </div>
+      </form>
+
+      <p class="text-[10px] text-slate-400 font-medium">
+        🛡️ Tu información se guarda segura y protegida bajo el Aviso de Privacidad de la consulta.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
   <!-- MODAL DE PROCESAMIENTO CRIPTOGRÁFICO (POW) -->
   <!-- ========================================== -->
   <div id="modal-pow-loader" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
@@ -453,6 +523,18 @@
         <div class="flex justify-between items-center border-b border-slate-200 pb-2">
           <span class="text-slate-500">FOLIO OFICIAL:</span>
           <strong id="modal-lbl-folio" class="text-guinda font-black text-sm">HM-VOTE-XXXXXXXX</strong>
+        </div>
+        <div class="flex justify-between items-center text-slate-600 text-[11px]">
+          <span>Ciudadano:</span>
+          <strong id="modal-lbl-nombre" class="text-slate-900 font-sans font-bold">Carlos Mendoza</strong>
+        </div>
+        <div class="flex justify-between items-center text-slate-600 text-[11px]">
+          <span>WhatsApp:</span>
+          <strong id="modal-lbl-whatsapp" class="text-slate-900 font-mono font-bold">4531234567</strong>
+        </div>
+        <div class="flex justify-between items-center text-slate-600 text-[11px]">
+          <span>Colonia:</span>
+          <span id="modal-lbl-colonia" class="text-slate-800">Apatzingán</span>
         </div>
         <div class="flex justify-between items-center text-slate-600 text-[11px]">
           <span>Candidato:</span>
@@ -832,8 +914,10 @@
       });
     }
 
-    // 7. EJECUTAR VOTO CON BLINDAJE ANTI-BOT & POW
-    async function ejecutarVoto(candidatoId, sentido, nombreCandidato) {
+    let VOTO_PENDIENTE = null;
+
+    // 7. EJECUTAR VOTO CON BLINDAJE ANTI-BOT, CAPTURA DE DATOS Y POW
+    function ejecutarVoto(candidatoId, sentido, nombreCandidato) {
       if (YA_VOTO_LOCAL) {
         alert('⚠️ Este dispositivo ya cuenta con un voto registrado en este sondeo. Cada ciudadano tiene derecho a 1 solo voto certificado.');
         return;
@@ -853,9 +937,68 @@
         return;
       }
 
+      VOTO_PENDIENTE = { candidatoId, sentido, nombreCandidato };
+
+      // Configurar Modal de Registro Ciudadano
+      document.getElementById('modal-reg-candidato-nombre').innerText = nombreCandidato;
+      const badgeSentido = document.getElementById('modal-reg-sentido-badge');
+      if (sentido === 'favor') {
+        badgeSentido.className = 'px-2.5 py-1 rounded-xl text-xs font-black bg-emerald-100 text-emerald-800';
+        badgeSentido.innerText = '👍 A FAVOR (+1)';
+      } else {
+        badgeSentido.className = 'px-2.5 py-1 rounded-xl text-xs font-black bg-rose-100 text-rose-800';
+        badgeSentido.innerText = '👎 DE RECHAZO (-1)';
+      }
+
+      // Pre-cargar si el usuario ya tenía guardados sus datos
+      const inputNom = document.getElementById('input-voto-nombre');
+      const inputTel = document.getElementById('input-voto-whatsapp');
+      const inputCol = document.getElementById('input-voto-colonia');
+      if (inputNom && !inputNom.value) inputNom.value = localStorage.getItem('hm_voter_cache_nombre') || '';
+      if (inputTel && !inputTel.value) inputTel.value = localStorage.getItem('hm_voter_cache_whatsapp') || '';
+      if (inputCol && !inputCol.value) inputCol.value = localStorage.getItem('hm_voter_cache_colonia') || '';
+
+      document.getElementById('modal-registro-ciudadano').classList.remove('hidden');
+      setTimeout(() => {
+        if (inputNom && !inputNom.value) inputNom.focus();
+        else if (inputTel) inputTel.focus();
+      }, 150);
+    }
+
+    function cerrarModalRegistroCiudadano() {
+      document.getElementById('modal-registro-ciudadano').classList.add('hidden');
+      VOTO_PENDIENTE = null;
+    }
+
+    async function confirmarVotoConDatos() {
+      if (!VOTO_PENDIENTE) return;
+
+      const nombre = (document.getElementById('input-voto-nombre')?.value || '').trim();
+      const whatsapp = (document.getElementById('input-voto-whatsapp')?.value || '').replace(/D/g, '');
+      const colonia = (document.getElementById('input-voto-colonia')?.value || '').trim();
+
+      if (!nombre || nombre.length < 3) {
+        alert('Por favor ingresa tu Nombre Completo para certificar tu voto.');
+        document.getElementById('input-voto-nombre')?.focus();
+        return;
+      }
+
+      if (!whatsapp || whatsapp.length < 10) {
+        alert('Por favor ingresa tu número de WhatsApp a 10 dígitos (ej. 4531234567).');
+        document.getElementById('input-voto-whatsapp')?.focus();
+        return;
+      }
+
+      // Guardar en cache local
+      localStorage.setItem('hm_voter_cache_nombre', nombre);
+      localStorage.setItem('hm_voter_cache_whatsapp', whatsapp);
+      if (colonia) localStorage.setItem('hm_voter_cache_colonia', colonia);
+
+      // Cerrar modal de datos y abrir modal de computo PoW
+      document.getElementById('modal-registro-ciudadano').classList.add('hidden');
+
+      const { candidatoId, sentido, nombreCandidato } = VOTO_PENDIENTE;
       const sentidoTexto = sentido === 'favor' ? 'A FAVOR 👍' : 'DE RECHAZO 👎';
-      const confirmar = confirm('¿Confirmas tu voto ' + sentidoTexto + ' para ' + nombreCandidato + '?');
-      if (!confirmar) return;
 
       // Abrir modal PoW
       const modalPow = document.getElementById('modal-pow-loader');
@@ -894,7 +1037,11 @@
               body: JSON.stringify({
                 encuesta_id: encId,
                 candidato_id: candidatoId,
+                candidato_nombre: nombreCandidato,
                 sentido: sentido,
+                nombre_ciudadano: nombre,
+                whatsapp: whatsapp,
+                colonia: colonia || 'Apatzingán',
                 fingerprint: fingerprint,
                 pow_nonce: nonce,
                 elapsed_ms: Math.round(performance.now() - TIEMPO_CARGA_PAGINA)
@@ -910,6 +1057,9 @@
           candidato_nombre: nombreCandidato,
           sentido: sentido,
           folio: folio,
+          nombre_ciudadano: nombre,
+          whatsapp: whatsapp,
+          colonia: colonia || 'Apatzingán',
           fingerprint: fingerprint,
           pow_nonce: nonce,
           fecha_hora: fechaHora,
@@ -917,10 +1067,13 @@
         });
 
         const mensajeTelegram = 
-          '🗳️ [VOTO OFICIAL REGISTRADO · SONDEO APATZINGÁN 2027]\n' +
-          'Folio de Auditoría: ' + folio + '\n' +
-          'Candidato: ' + nombreCandidato + '\n' +
+          '🗳️ [VOTO CIUDADANO CERTIFICADO · SONDEO APATZINGÁN 2027]\n' +
+          '👤 Ciudadano: ' + nombre + '\n' +
+          '📱 WhatsApp: ' + whatsapp + '\n' +
+          '📍 Colonia: ' + (colonia || 'Apatzingán') + '\n' +
+          '🗳️ Candidato: ' + nombreCandidato + '\n' +
           'Sentido: ' + (sentido === 'favor' ? '👍 A FAVOR (+1)' : '👎 EN CONTRA / RECHAZO (-1)') + '\n' +
+          'Folio de Auditoría: ' + folio + '\n' +
           'Dispositivo SHA-256: ' + fingerprint.substring(0, 16) + '...\n' +
           'Proof-of-Work Nonce: ' + nonce + ' (Válido)\n' +
           'Fecha y Hora: ' + fechaHora + '\n' +
@@ -945,6 +1098,9 @@
         localStorage.setItem('hm_recibo_folio_' + encId, folio);
         localStorage.setItem('hm_recibo_cand_' + encId, nombreCandidato);
         localStorage.setItem('hm_recibo_sentido_' + encId, sentidoTexto);
+        localStorage.setItem('hm_recibo_nombre_' + encId, nombre);
+        localStorage.setItem('hm_recibo_whatsapp_' + encId, whatsapp);
+        localStorage.setItem('hm_recibo_colonia_' + encId, colonia || 'Apatzingán');
         localStorage.setItem('hm_recibo_sello_' + encId, selloDigital);
         localStorage.setItem('hm_recibo_fecha_' + encId, fechaHora);
 
@@ -960,8 +1116,15 @@
 
         modalPow.classList.add('hidden');
 
-        // Mostrar Modal de Éxito
+        // Mostrar Modal de Éxito con datos
         document.getElementById('modal-lbl-folio').innerText = folio;
+        const lblNom = document.getElementById('modal-lbl-nombre');
+        const lblWa = document.getElementById('modal-lbl-whatsapp');
+        const lblCol = document.getElementById('modal-lbl-colonia');
+        if (lblNom) lblNom.innerText = nombre;
+        if (lblWa) lblWa.innerText = whatsapp;
+        if (lblCol) lblCol.innerText = colonia || 'Apatzingán';
+
         document.getElementById('modal-lbl-candidato').innerText = nombreCandidato;
         document.getElementById('modal-lbl-sentido').innerText = sentidoTexto;
         document.getElementById('modal-lbl-fecha').innerText = fechaHora;
@@ -992,6 +1155,26 @@
       document.getElementById('modal-recibo-exito').classList.add('hidden');
       const elem = document.getElementById('resultados-en-vivo');
       if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function verMiReciboCompleto() {
+      const encId = DATOS_ENCUESTA_ACTUAL?.id || 'sondeo-alcaldia-apatzingan-2027';
+      const folio = localStorage.getItem('hm_recibo_folio_' + encId) || RECIBO_LOCAL;
+      if (!folio) return;
+
+      document.getElementById('modal-lbl-folio').innerText = folio;
+      const lblNom = document.getElementById('modal-lbl-nombre');
+      const lblWa = document.getElementById('modal-lbl-whatsapp');
+      const lblCol = document.getElementById('modal-lbl-colonia');
+      if (lblNom) lblNom.innerText = localStorage.getItem('hm_recibo_nombre_' + encId) || 'Ciudadano Registrado';
+      if (lblWa) lblWa.innerText = localStorage.getItem('hm_recibo_whatsapp_' + encId) || 'N/A';
+      if (lblCol) lblCol.innerText = localStorage.getItem('hm_recibo_colonia_' + encId) || 'Apatzingán';
+
+      document.getElementById('modal-lbl-candidato').innerText = localStorage.getItem('hm_recibo_cand_' + encId) || 'Candidato';
+      document.getElementById('modal-lbl-sentido').innerText = localStorage.getItem('hm_recibo_sentido_' + encId) || 'Voto Emitido';
+      document.getElementById('modal-lbl-fecha').innerText = localStorage.getItem('hm_recibo_fecha_' + encId) || '';
+      document.getElementById('modal-lbl-sello').innerText = localStorage.getItem('hm_recibo_sello_' + encId) || '';
+      document.getElementById('modal-recibo-exito').classList.remove('hidden');
     }
 
     // 9. VERIFICADOR DE FOLIO
