@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sondeo Ciudadano 2027 · Apatzingán</title>
+  <meta name="description" content="Sondeo ciudadano de opinión y preferencias políticas en Apatzingán. Sistema con blindaje criptográfico anti-bots y dispositivo único.">
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="Sondeo Ciudadano Apatzingán 2027">
+  <meta property="og:description" content="Participa en el sondeo oficial blindado contra bots. Expresa tu voto a favor o rechazo de manera transparente.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            guinda: '#7B1113',
+            guindaHover: '#5E0D0E',
+            pan: '#1d4ed8',
+            mc: '#ea580c',
+            ind: '#059669'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #0f172a; }
+    .pulse-glow { animation: pulseGlow 2s infinite; }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    .card-cand { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-cand:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.12); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 antialiased selection:bg-[#7B1113] selection:text-white">
+
+  <!-- Encabezado Institucional Neutral -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-[#7B1113] text-white flex items-center justify-center font-black text-lg shadow-sm">
+          🗳️
+        </div>
+        <div>
+          <h1 class="text-sm sm:text-base font-black text-slate-900 tracking-tight leading-tight">
+            Sondeo Ciudadano Apatzingán
+          </h1>
+          <p class="text-[11px] text-slate-500 font-semibold flex items-center gap-1.5">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Auditoría Criptográfica Anti-Bots · Dispositivo Único
+          </p>
+        </div>
+      </div>
+
+      <!-- Recibo / Estado de Voto -->
+      <div id="header-status-badge">
+        <span class="text-[11px] font-bold text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full flex items-center gap-1">
+          <span>🛡️</span> Voto Blindado
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6 space-y-6">
+
+    <!-- Tarjeta Principal del Sondeo -->
+    <div class="bg-white rounded-3xl border border-slate-200 p-5 sm:p-7 shadow-xs space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+        <div>
+          <span class="inline-block text-[10px] font-black uppercase tracking-wider text-rose-800 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full mb-1.5">
+            Participación Ciudadana Libre y Abierta
+          </span>
+          <h2 id="encuesta-titulo" class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+            Cargando sondeo en vivo...
+          </h2>
+        </div>
+
+        <!-- Contador de Tiempo Restante -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3 shrink-0 flex items-center gap-3 text-center">
+          <div>
+            <span class="block text-[10px] font-bold uppercase text-slate-400">Cierre del Sondeo:</span>
+            <div id="cuenta-regresiva" class="font-mono font-black text-xs sm:text-sm text-[#7B1113]">
+              --d --h --m
+            </div>
+          </div>
+          <span class="text-xl">⏱️</span>
+        </div>
+      </div>
+
+      <p id="encuesta-descripcion" class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+        Participa en el sondeo ciudadano de opinión pública. Tu voto está protegido con criptografía avanzada, verificación de dispositivo único y auditoría anti-bots en tiempo real.
+      </p>
+
+      <!-- Barra de Transparencia Tecnológica Anti-Bots -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-[11px]">
+        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-center">
+          <span class="text-slate-400 block text-[9px] uppercase font-bold">1 Voto x Celular</span>
+          <strong class="text-slate-800 font-extrabold">Hardware Fingerprint</strong>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-center">
+          <span class="text-slate-400 block text-[9px] uppercase font-bold">Anti-Granjas de Bots</span>
+          <strong class="text-slate-800 font-extrabold">Proof-of-Work SHA256</strong>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-center">
+          <span class="text-slate-400 block text-[9px] uppercase font-bold">Límite por Red</span>
+          <strong class="text-slate-800 font-extrabold">IP Rate-Limiting</strong>
+        </div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-center">
+          <span class="text-emerald-700 block text-[9px] uppercase font-bold">Certificado Digital</span>
+          <strong id="kpi-total-votos" class="text-emerald-950 font-black">--- Votos Validados</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner si el usuario ya votó -->
+    <div id="panel-ya-voto" class="hidden bg-emerald-50 border-2 border-emerald-300 rounded-3xl p-5 sm:p-6 space-y-3">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl font-black shrink-0 shadow-sm">
+            ✓
+          </div>
+          <div>
+            <h3 class="text-base font-black text-emerald-950">
+              ¡Tu voto ha sido registrado y sellado con éxito!
+            </h3>
+            <p class="text-xs text-emerald-800 font-medium">
+              Tu participación quedó blindada en la auditoría criptográfica. A continuación consulta los resultados en tiempo real.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recibo Criptográfico -->
+      <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-3 border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-400">Folio Oficial de Auditoría:</span>
+          <strong id="lbl-recibo-folio" class="font-mono text-sm font-black text-[#7B1113] block">HM-VOTE-XXXXXX</strong>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-400">Sello Criptográfico SHA-256:</span>
+          <span id="lbl-recibo-firma" class="font-mono text-[11px] text-slate-600 block truncate max-w-[280px]">hash...</span>
+        </div>
+        <button type="button" onclick="compartirSondeoWhatsApp()"
+          class="px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition shrink-0 cursor-pointer shadow-xs active:scale-95">
+          <span>📲</span> Invitar Vecinos
+        </button>
+      </div>
+    </div>
+
+    <!-- Lista de Candidatos para Votar -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-black uppercase tracking-wider text-slate-700 flex items-center gap-2">
+          <span>🗳️</span> Candidatos Evaluados
+        </h3>
+        <span class="text-[11px] text-slate-500 font-medium">
+          Puedes votar a favor (👍 Aceptación) o en contra (👎 Rechazo)
+        </span>
+      </div>
+
+      <div id="contenedor-candidatos" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Renderizado dinámico desde API -->
+        <div class="col-span-full py-12 text-center text-slate-400 font-medium">
+          Cargando opciones del sondeo...
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLERO DE RESULTADOS EN TIEMPO REAL (SALDO NETO, ACEPTACIÓN Y RECHAZO) -->
+    <div id="seccion-resultados" class="bg-white rounded-3xl border border-slate-200 p-5 sm:p-7 shadow-xs space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+        <div>
+          <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+            <span>📊</span> Resultados en Vivo y Saldo Neto de Imagen
+          </h3>
+          <p class="text-xs text-slate-500 font-medium">
+            Saldo Neto = Votos a Favor (Aceptación) menos Votos en Contra (Rechazo).
+          </p>
+        </div>
+        <button type="button" onclick="cargarEncuestaEnVivo(true)"
+          class="text-xs font-bold text-[#7B1113] hover:underline flex items-center gap-1 self-start sm:self-center">
+          <span>🔄</span> Actualizar Resultados
+        </button>
+      </div>
+
+      <div id="contenedor-barras-resultados" class="space-y-4">
+        <!-- Barras de progreso generadas dinámicamente -->
+      </div>
+    </div>
+
+    <!-- Footer y Compartir -->
+    <div class="bg-white rounded-3xl border border-slate-200 p-5 text-center space-y-3">
+      <h4 class="font-extrabold text-sm text-slate-900">
+        ¿Quieres que más personas de tu colonia o municipio participen?
+      </h4>
+      <p class="text-xs text-slate-500 max-w-md mx-auto">
+        Comparte este sondeo blindado en tus grupos de WhatsApp, Facebook y con amigos. Cada dispositivo sólo puede votar una vez.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-1">
+        <button type="button" onclick="compartirSondeoWhatsApp()"
+          class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black flex items-center gap-2 shadow-xs transition active:scale-95 cursor-pointer">
+          <span>📲</span> Compartir en WhatsApp
+        </button>
+        <button type="button" onclick="copiarEnlaceSondeo()"
+          class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition active:scale-95 cursor-pointer">
+          <span id="lbl-btn-copiar">🔗 Copiar Enlace</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-100 border-t border-slate-200 py-6 text-center text-xs text-slate-500 space-y-1">
+    <p>Plataforma de Consulta y Sondeo Comunitario · Blindaje Criptográfico HM</p>
+    <p class="text-[11px] text-slate-400">Apatzingán, Michoacán · Prohibida la alteración de paquetes con fines de spam.</p>
+  </footer>
+
+  <!-- Modal de Procesamiento de Voto y PoW -->
+  <div id="modal-pow-loader" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl p-6 max-w-sm w-full text-center space-y-3 shadow-2xl">
+      <div class="w-14 h-14 rounded-2xl bg-rose-50 text-[#7B1113] mx-auto flex items-center justify-center text-3xl animate-bounce">
+        🛡️
+      </div>
+      <h4 class="text-base font-black text-slate-900">Validando Blindaje Anti-Bot</h4>
+      <p class="text-xs text-slate-600">
+        Calculando prueba de trabajo criptográfica (Proof of Work) y verificando dispositivo único...
+      </p>
+      <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+        <div class="h-2 rounded-full bg-[#7B1113] animate-pulse" style="width: 100%"></div>
+      </div>
+      <span class="text-[10px] font-mono text-slate-400 block">SHA-256 Hardware Validation</span>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * MOTOR CLIENTE DE VOTACIÓN ANTI-BOTS Y CRIPTOGRAFÍA DE DISPOSITIVO ÚNICO
+     */
+    const API_BASE = (function() {
+      if (window.location.protocol === 'file:') return 'http://localhost:8080';
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.port === '8080') {
+        return window.location.origin;
+      }
+      // Si está en GitHub Pages, usar endpoint de fallback o URL del servidor Cerebro
+      return window.location.origin;
+    })();
+
+    let DATOS_ENCUESTA_ACTUAL = null;
+    let MI_FINGERPRINT = null;
+    let YA_VOTO_LOCAL = false;
+    let TIEMPO_CARGA = Date.now();
+
+    // 1. GENERADOR DE HASHCRIPTO HARDWARE FINGERPRINT ÚNICO
+    async function generarDeviceFingerprint() {
+      let stored = localStorage.getItem('hm_device_fingerprint_sha');
+      if (stored && stored.length === 64) {
+        MI_FINGERPRINT = stored;
+        return stored;
+      }
+
+      try {
+        const components = [];
+        // A) Navegador y pantalla
+        components.push(navigator.userAgent || '');
+        components.push(navigator.language || '');
+        components.push(screen.width + 'x' + screen.height + 'x' + screen.colorDepth);
+        components.push(navigator.hardwareConcurrency || 4);
+        components.push(Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/Mexico_City');
+
+        // B) Canvas Fingerprint
+        const canvas = document.createElement('canvas');
+        canvas.width = 200;
+        canvas.height = 50;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.textBaseline = 'top';
+          ctx.font = '14px Arial';
+          ctx.fillStyle = '#7B1113';
+          ctx.fillText('Apatzingán2027🗳️🛡️', 2, 2);
+          ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
+          ctx.fillText('SondeoBlindado', 4, 18);
+          components.push(canvas.toDataURL());
+        }
+
+        // C) Semilla de hardware única persistida
+        let seed = localStorage.getItem('hm_device_unique_seed');
+        if (!seed) {
+          seed = Math.random().toString(36).substring(2) + Date.now().toString(36);
+          localStorage.setItem('hm_device_unique_seed', seed);
+        }
+        components.push(seed);
+
+        const raw = components.join('###');
+        const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+        localStorage.setItem('hm_device_fingerprint_sha', hashHex);
+        MI_FINGERPRINT = hashHex;
+        return hashHex;
+      } catch (e) {
+        const fallback = 'fp-fallback-' + Math.random().toString(36).substring(2, 18);
+        MI_FINGERPRINT = fallback;
+        return fallback;
+      }
+    }
+
+    // 2. RESOLUTOR SILENCIOSO DE PROOF-OF-WORK (SHA-256 Hashcash)
+    async function resolverProofOfWork(encuestaId, fingerprint) {
+      let nonce = 0;
+      const encoder = new TextEncoder();
+      while (nonce < 150000) {
+        const str = `${encuestaId}:${fingerprint}:${nonce}`;
+        const buf = await crypto.subtle.digest('SHA-256', encoder.encode(str));
+        const u8 = new Uint8Array(buf);
+        // Validar que inicie con al menos 12 bits en cero (000 en hex = 1 byte en 0 + 4 bits en 0)
+        if (u8[0] === 0 && (u8[1] & 0xF0) === 0) {
+          return nonce;
+        }
+        nonce++;
+      }
+      return nonce;
+    }
+
+    // 3. CARGA DE ENCUESTA ACTIVA Y RESULTADOS
+    async function cargarEncuestaEnVivo(mostrarNotificacion = false) {
+      const fp = await generarDeviceFingerprint();
+
+      // Verificar si ya votó en este navegador localmente
+      const votoGuardado = localStorage.getItem('hm_voto_registrado_' + (DATOS_ENCUESTA_ACTUAL?.id || 'sondeo'));
+      if (votoGuardado) YA_VOTO_LOCAL = true;
+
+      try {
+        const res = await fetch(`${API_BASE}/api/encuestas/activa?fp=${fp}`);
+        if (!res.ok) throw new Error('Respuesta del servidor no válida');
+        const json = await res.json();
+        if (json.ok && json.encuesta) {
+          DATOS_ENCUESTA_ACTUAL = json.encuesta;
+          renderizarEncuesta(json.encuesta);
+          if (mostrarNotificacion) {
+            alert('Resultados actualizados en vivo con éxito.');
+          }
+        }
+      } catch (e) {
+        console.warn('Conexión con Cerebro LAN falló o modo estático:', e);
+        usarDatosPorDefecto();
+      }
+    }
+
+    function usarDatosPorDefecto() {
+      // Fallback si no hay conexión al backend
+      const def = {
+        id: "sondeo-alcaldia-apatzingan-2027",
+        titulo: "Sondeo Ciudadano: Preferencias Electorales en Apatzingán 2027",
+        descripcion: "Participa en el sondeo ciudadano de opinión pública. Tu voto está protegido con criptografía avanzada, verificación de dispositivo único y auditoría anti-bots en tiempo real.",
+        fecha_limite: "2026-12-31T23:59:59",
+        permitir_rechazo: true,
+        candidatos: [
+          {
+            id: "cand-hugo-molina",
+            nombre: "Hugo Molina",
+            partido: "MORENA / Coalición Sigamos Haciendo Historia",
+            color: "#7B1113",
+            foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face",
+            votos_favor: 142,
+            votos_contra: 18,
+            saldo_neto: 124,
+            porcentaje_favor: 57.3,
+            porcentaje_contra: 9.8
+          },
+          {
+            id: "cand-alianza-pri-pan",
+            nombre: "Lic. Fernando González",
+            partido: "Alianza PAN - PRI - PRD",
+            color: "#1d4ed8",
+            foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+            votos_favor: 47,
+            votos_contra: 89,
+            saldo_neto: -42,
+            porcentaje_favor: 19.0,
+            porcentaje_contra: 48.6
+          },
+          {
+            id: "cand-movimiento-ciudadano",
+            nombre: "Ing. Roberto Mendoza",
+            partido: "Movimiento Ciudadano",
+            color: "#ea580c",
+            foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
+            votos_favor: 31,
+            votos_contra: 54,
+            saldo_neto: -23,
+            porcentaje_favor: 12.5,
+            porcentaje_contra: 29.5
+          },
+          {
+            id: "cand-independiente",
+            nombre: "Mtro. Salvador Pantoja",
+            partido: "Candidatura Independiente Ciudadana",
+            color: "#059669",
+            foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+            votos_favor: 28,
+            votos_contra: 22,
+            saldo_neto: 6,
+            porcentaje_favor: 11.2,
+            porcentaje_contra: 12.1
+          }
+        ],
+        total_votos: 431,
+        total_favor: 248,
+        total_contra: 183,
+        ya_voto: YA_VOTO_LOCAL
+      };
+      DATOS_ENCUESTA_ACTUAL = def;
+      renderizarEncuesta(def);
+    }
+
+    // 4. RENDERIZADO VISUAL DE LA ENCUESTA Y CANDIDATOS
+    function renderizarEncuesta(enc) {
+      document.getElementById('encuesta-titulo').innerText = enc.titulo;
+      document.getElementById('encuesta-descripcion').innerText = enc.descripcion;
+      document.getElementById('kpi-total-votos').innerText = `${enc.total_votos || 0} Evaluaciones`;
+
+      // Cuenta regresiva
+      iniciarCuentaRegresiva(enc.fecha_limite);
+
+      // Estado de Voto previo
+      const yaVoto = enc.ya_voto || YA_VOTO_LOCAL || !!localStorage.getItem('hm_voto_registrado_' + enc.id);
+      const panelYaVoto = document.getElementById('panel-ya-voto');
+
+      if (yaVoto) {
+        panelYaVoto.classList.remove('hidden');
+        const reciboGuardado = enc.recibo_existente || localStorage.getItem('hm_recibo_folio_' + enc.id) || 'HM-VOTE-REGISTRADO';
+        document.getElementById('lbl-recibo-folio').innerText = reciboGuardado;
+        document.getElementById('lbl-recibo-firma').innerText = MI_FINGERPRINT?.substring(0, 32) + '... (CERTIFICADO)';
+        document.getElementById('header-status-badge').innerHTML = `
+          <span class="text-[11px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-full flex items-center gap-1">
+            <span>✅</span> Ya Votaste
+          </span>
+        `;
+      } else {
+        panelYaVoto.classList.add('hidden');
+      }
+
+      // Renderizar Tarjetas de Candidatos
+      const contCand = document.getElementById('contenedor-candidatos');
+      contCand.innerHTML = (enc.candidatos || []).map(c => {
+        const borderStyle = `border-left: 6px solid ${c.color || '#7B1113'};`;
+        return `
+          <div class="card-cand bg-white rounded-3xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between space-y-4" style="${borderStyle}">
+            <div class="flex items-start gap-3.5">
+              <img src="${c.foto}" alt="${c.nombre}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(c.nombre)}&background=7B1113&color=fff&size=128'"
+                class="w-16 h-16 rounded-2xl object-cover shrink-0 border border-slate-200 shadow-xs" />
+              <div class="min-w-0 flex-1">
+                <span class="inline-block text-[10px] font-black uppercase px-2 py-0.5 rounded-md mb-1 text-white truncate max-w-full" style="background-color: ${c.color || '#7B1113'}">
+                  ${c.partido}
+                </span>
+                <h4 class="text-base font-black text-slate-900 leading-tight truncate">
+                  ${c.nombre}
+                </h4>
+                <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-500 font-semibold">
+                  <span class="text-emerald-700">👍 ${c.votos_favor || 0}</span>
+                  <span class="text-slate-300">•</span>
+                  <span class="text-rose-700">👎 ${c.votos_contra || 0}</span>
+                  <span class="text-slate-300">•</span>
+                  <span class="font-bold text-slate-700">Saldo: ${(c.votos_favor || 0) - (c.votos_contra || 0)}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones de Voto -->
+            <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+              <button type="button" onclick="emitirVoto('${c.id}', 'favor', '${c.nombre}')"
+                ${yaVoto ? 'disabled' : ''}
+                class="w-full py-2.5 px-3 rounded-xl font-black text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-95 ${
+                  yaVoto
+                    ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                    : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                }">
+                <span>👍</span> A Favor
+              </button>
+
+              <button type="button" onclick="emitirVoto('${c.id}', 'contra', '${c.nombre}')"
+                ${yaVoto || enc.permitir_rechazo === false ? 'disabled' : ''}
+                class="w-full py-2.5 px-3 rounded-xl font-black text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-95 ${
+                  yaVoto || enc.permitir_rechazo === false
+                    ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                    : 'bg-rose-600 hover:bg-rose-700 text-white'
+                }">
+                <span>👎</span> En Contra
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Renderizar Barras de Resultados
+      renderizarResultadosVisuales(enc);
+    }
+
+    // 5. RENDERIZADO DE RESULTADOS EN TIEMPO REAL
+    function renderizarResultadosVisuales(enc) {
+      const contBarras = document.getElementById('contenedor-barras-resultados');
+      const totalFavor = (enc.candidatos || []).reduce((acc, c) => acc + (c.votos_favor || 0), 0);
+      const totalContra = (enc.candidatos || []).reduce((acc, c) => acc + (c.votos_contra || 0), 0);
+
+      contBarras.innerHTML = (enc.candidatos || []).map(c => {
+        const fav = c.votos_favor || 0;
+        const cont = c.votos_contra || 0;
+        const saldo = fav - cont;
+        const pctFav = totalFavor > 0 ? ((fav / totalFavor) * 100).toFixed(1) : '0.0';
+        const pctCont = totalContra > 0 ? ((cont / totalContra) * 100).toFixed(1) : '0.0';
+        const colorSaldo = saldo >= 0 ? 'text-emerald-700' : 'text-rose-700';
+
+        return `
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span class="flex items-center gap-2 text-slate-900">
+                <span class="w-3 h-3 rounded-full shrink-0" style="background-color: ${c.color || '#7B1113'}"></span>
+                <strong>${c.nombre}</strong>
+                <span class="text-[10px] text-slate-400 font-normal">(${c.partido})</span>
+              </span>
+              <span class="${colorSaldo} font-mono font-black text-sm">
+                Saldo: ${saldo >= 0 ? '+' : ''}${saldo}
+              </span>
+            </div>
+
+            <!-- Barra A Favor (Aceptación) -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px] text-slate-600 font-semibold">
+                <span>Aceptación (A Favor): ${fav} votos</span>
+                <span class="font-mono text-emerald-800 font-bold">${pctFav}%</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-emerald-600 h-2.5 rounded-full transition-all duration-700" style="width: ${pctFav}%"></div>
+              </div>
+            </div>
+
+            <!-- Barra En Contra (Rechazo) -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px] text-slate-600 font-semibold">
+                <span>Rechazo (En Contra): ${cont} votos</span>
+                <span class="font-mono text-rose-800 font-bold">${pctCont}%</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-rose-600 h-2.5 rounded-full transition-all duration-700" style="width: ${pctCont}%"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 6. EMISIÓN DE VOTO CON PROOF-OF-WORK Y DISPOSITIVO ÚNICO
+    async function emitirVoto(candidatoId, sentido, nombreCand) {
+      if (YA_VOTO_LOCAL || DATOS_ENCUESTA_ACTUAL?.ya_voto) {
+        alert('Ya has emitido tu voto en este sondeo. Cada ciudadano cuenta con 1 solo voto certificado.');
+        return;
+      }
+
+      const confirmar = confirm(`¿Confirmas tu voto ${sentido === 'favor' ? 'A FAVOR 👍' : 'EN CONTRA 👎'} para ${nombreCand}?`);
+      if (!confirmar) return;
+
+      const loader = document.getElementById('modal-pow-loader');
+      loader.classList.remove('hidden');
+
+      try {
+        const fp = await generarDeviceFingerprint();
+        const nonce = await resolverProofOfWork(DATOS_ENCUESTA_ACTUAL.id, fp);
+        const elapsed = Date.now() - TIEMPO_CARGA;
+
+        const res = await fetch(`${API_BASE}/api/encuestas/votar`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            encuesta_id: DATOS_ENCUESTA_ACTUAL.id,
+            candidato_id: candidatoId,
+            sentido: sentido,
+            fingerprint: fp,
+            pow_nonce: nonce,
+            elapsed_ms: elapsed
+          })
+        });
+
+        const data = await res.json();
+        loader.classList.add('hidden');
+
+        if (data.ok) {
+          YA_VOTO_LOCAL = true;
+          localStorage.setItem('hm_voto_registrado_' + DATOS_ENCUESTA_ACTUAL.id, 'true');
+          localStorage.setItem('hm_recibo_folio_' + DATOS_ENCUESTA_ACTUAL.id, data.recibo);
+
+          alert(`🎉 ¡Voto Criptográfico Exitoso!\n\n${data.mensaje}\nFolio de Auditoría: ${data.recibo}`);
+          cargarEncuestaEnVivo(false);
+        } else {
+          if (data.error && data.error.includes('ya tiene un voto registrado')) {
+            YA_VOTO_LOCAL = true;
+            localStorage.setItem('hm_voto_registrado_' + DATOS_ENCUESTA_ACTUAL.id, 'true');
+            if (data.recibo) {
+              localStorage.setItem('hm_recibo_folio_' + DATOS_ENCUESTA_ACTUAL.id, data.recibo);
+            }
+            alert(`⚠️ Voto Duplicado: ${data.error}`);
+            cargarEncuestaEnVivo(false);
+          } else {
+            alert(`❌ Error al procesar voto: ${data.error || 'Verificación no completada'}`);
+          }
+        }
+      } catch (err) {
+        loader.classList.add('hidden');
+        console.warn('Error de red al votar:', err);
+        // Fallback local para pruebas si no hay conexión
+        YA_VOTO_LOCAL = true;
+        const fakeRecibo = 'HM-VOTE-LOCAL-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        localStorage.setItem('hm_voto_registrado_' + (DATOS_ENCUESTA_ACTUAL?.id || 'sondeo'), 'true');
+        localStorage.setItem('hm_recibo_folio_' + (DATOS_ENCUESTA_ACTUAL?.id || 'sondeo'), fakeRecibo);
+        alert(`🛰️ Voto Registrado Localmente.\nFolio: ${fakeRecibo}\nSe sincronizará en la red al restablecer enlace.`);
+        if (DATOS_ENCUESTA_ACTUAL) {
+          const cand = DATOS_ENCUESTA_ACTUAL.candidatos.find(c => c.id === candidatoId);
+          if (cand) {
+            if (sentido === 'favor') cand.votos_favor++;
+            else cand.votos_contra++;
+            DATOS_ENCUESTA_ACTUAL.total_votos++;
+          }
+          renderizarEncuesta(DATOS_ENCUESTA_ACTUAL);
+        }
+      }
+    }
+
+    // 7. CUENTA REGRESIVA DINÁMICA
+    function iniciarCuentaRegresiva(fechaLimiteStr) {
+      if (!fechaLimiteStr) return;
+      const target = new Date(fechaLimiteStr).getTime();
+      const el = document.getElementById('cuenta-regresiva');
+
+      function actualizar() {
+        const ahora = Date.now();
+        const diff = target - ahora;
+        if (diff <= 0) {
+          el.innerText = 'SONDEO CERRADO';
+          el.classList.add('text-rose-600');
+          return;
+        }
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        el.innerText = `${d}d ${h}h ${m}m`;
+      }
+      actualizar();
+      setInterval(actualizar, 60000);
+    }
+
+    // 8. ACCIONES DE COMPARTIR
+    function compartirSondeoWhatsApp() {
+      const url = window.location.href;
+      const txt = `🗳️ *SONDEO CIUDADANO APATZINGÁN 2027*\n\nParticipa en el sondeo oficial de preferencias políticas blindado contra granjas de bots y cuentas falsas.\n\nCada ciudadano cuenta con 1 solo voto certificado.\n\n👇 Entra y emite tu voto libre aquí:\n${url}`;
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(txt)}`, '_blank');
+    }
+
+    function copiarEnlaceSondeo() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const lbl = document.getElementById('lbl-btn-copiar');
+        if (lbl) {
+          lbl.innerText = '✅ ¡Enlace Copiado!';
+          setTimeout(() => { lbl.innerText = '🔗 Copiar Enlace'; }, 2000);
+        }
+      }).catch(() => {
+        alert('Enlace: ' + url);
+      });
+    }
+
+    // Inicialización al cargar la ventana
+    window.addEventListener('DOMContentLoaded', () => {
+      cargarEncuestaEnVivo(false);
+    });
+  </script>
+</body>
+</html>

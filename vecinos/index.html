@@ -1006,6 +1006,13 @@
           markerWebInstance.setLatLng(e.latlng);
           actualizarCoordsWeb(e.latlng.lat, e.latlng.lng, 'clic');
         });
+
+        // Asegurar que las coordenadas iniciales estén asignadas en el formulario
+        actualizarCoordsWeb(lat, lng, 'init');
+
+        setTimeout(() => {
+          try { mapaWebInstance.invalidateSize(); } catch(e) {}
+        }, 300);
       } catch (e) {
         console.warn('Fallo al iniciar Leaflet:', e);
       }
@@ -1015,7 +1022,8 @@
       const latF = Number(lat).toFixed(5);
       const lngF = Number(lng).toFixed(5);
       const val = `${latF}, ${lngF}`;
-      document.getElementById('web-coords').value = val;
+      const inp = document.getElementById('web-coords');
+      if (inp) inp.value = val;
 
       const tip = document.getElementById('lbl-map-tip');
       if (tip) tip.innerText = `📍 Pin fijado en: ${val}. Ubicación satelital lista.`;
@@ -1039,7 +1047,13 @@
     }
 
     function capturarGPSWeb(notificar = true) {
-      if (!navigator.geolocation) return;
+      if (!navigator.geolocation) {
+        if (notificar) alert('Geolocalización no soportada en este navegador. Selecciona tu colonia o arrastra el pin en el mapa.');
+        return;
+      }
+      const triggerBtn = document.querySelector('.btn-gps-trigger');
+      if (triggerBtn) triggerBtn.innerText = '🛰️ Buscando satélites...';
+
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           const lat = pos.coords.latitude;
@@ -1049,12 +1063,21 @@
             mapaWebInstance.setView([lat, lng], 16);
             markerWebInstance.setLatLng([lat, lng]);
           }
-          if (notificar) alert(`GPS detectado con precisión (±${Math.round(pos.coords.accuracy)}m)`);
+          if (triggerBtn) triggerBtn.innerHTML = `<span>🎯</span> GPS: ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          if (notificar) alert(`🛰️ ¡GPS Satelital Fijado!\nCoordenadas: ${lat.toFixed(5)}, ${lng.toFixed(5)} (±${Math.round(pos.coords.accuracy)}m)`);
         },
         (err) => {
-          if (notificar) alert('No se pudo obtener el GPS del dispositivo. Puedes mover el pin rojo en el mapa o elegir tu colonia.');
+          if (triggerBtn) triggerBtn.innerHTML = '<span>🎯</span> Reintentar GPS';
+          const selCol = document.getElementById('web-colonia')?.value;
+          const c = COLONIAS_APATZINGAN.find(item => item.nombre === selCol);
+          if (c) {
+            actualizarCoordsWeb(c.lat, c.lng, 'colonia_fallback');
+          } else {
+            actualizarCoordsWeb(19.08830, -102.35640, 'defecto');
+          }
+          if (notificar) alert('No se pudo obtener señal GNSS directa. Se fijó la posición de la colonia en el mapa. Puedes arrastrar el pin rojo hasta el basurero.');
         },
-        { enableHighAccuracy: true, timeout: 10000 }
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 5000 }
       );
     }
 
