@@ -670,7 +670,8 @@
         try {
           const res = await fetch(API_BASE + '/api/encuestas/activa', { cache: forzarRefresco ? 'no-cache' : 'default' });
           if (res.ok) {
-            data = await res.json();
+            const jsonResp = await res.json();
+            data = jsonResp.encuesta || jsonResp;
           }
         } catch (e) {
           console.warn('Backend local no disponible:', e.message);
@@ -682,7 +683,8 @@
         try {
           const resPub = await fetch('resultados.json?t=' + Date.now(), { cache: 'no-store' });
           if (resPub.ok) {
-            data = await resPub.json();
+            const jsonPub = await resPub.json();
+            data = jsonPub.encuesta || jsonPub;
           }
         } catch (ePub) {
           console.warn('Repositorio público sin resultados.json aún:', ePub.message);
