@@ -1,0 +1,33 @@
+# =====================================================================
+# BLINDAJE DE SEGURIDAD - REPOSITORIO PÚBLICO GITHUB PAGES
+# =====================================================================
+
+# Secretos, credenciales y variables de entorno
+.env
+.env.*
+*.env
+cerebro_security.env
+secrets/
+
+# Llaves y certificados criptográficos
+*.pem
+*.key
+*.p12
+*.cer
+*.keystore
+*.jks
+
+# Logs y volcados de depuración
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Dependencias locales
+node_modules/
+
+# Basura de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
