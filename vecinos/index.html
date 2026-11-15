@@ -2,16 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Vecinal Apatzingán · Reporte Ciudadano en Línea</title>
-  <meta name="description" content="Plataforma ciudadana y vecinal de Apatzingán, Michoacán. Reporta basureros, lotes baldíos, baches y luminarias con evidencia satelital. Tu colonia organizada vive mejor.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Portal Vecinal Apatzingán · Tu Colonia Organizada Vive Mejor</title>
+  <meta name="description" content="Plataforma ciudadana y vecinal de Apatzingán, Michoacán. Reporta basureros, lotes baldíos, baches y luminarias con evidencia satelital. La unión vecinal transforma nuestras calles.">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Leaflet para el mapa interactivo vecinal (100% público y responsivo) -->
+  <!-- Leaflet CSS para el Mini-Mapa Interactivo de Reporte -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
     :root {
@@ -19,6 +19,7 @@
       --primary-dark: #047857;
       --primary-light: #ecfdf5;
       --accent: #2563eb;
+      --accent-dark: #1d4ed8;
       --dark: #0f172a;
       --slate: #334155;
       --muted: #64748b;
@@ -32,6 +33,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -50,7 +55,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      padding: 0.85rem 1.5rem;
+      padding: 0.9rem 1.5rem;
     }
     .nav-container {
       max-width: 1140px;
@@ -66,19 +71,19 @@
       text-decoration: none;
       color: var(--dark);
       font-weight: 900;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       letter-spacing: -0.02em;
     }
     .brand-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       background: linear-gradient(135deg, #059669 0%, #10b981 100%);
       color: white;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
     }
     .nav-links {
@@ -89,7 +94,7 @@
     .nav-link {
       text-decoration: none;
       color: var(--slate);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 600;
       transition: color 0.2s;
     }
@@ -115,11 +120,11 @@
       transform: translateY(-1px);
     }
 
-    /* Hero Principal */
+    /* Hero Section */
     .hero {
       background: linear-gradient(160deg, #0f172a 0%, #1e293b 60%, #064e3b 100%);
       color: #ffffff;
-      padding: 4.5rem 1.5rem 4rem;
+      padding: 4.5rem 1.5rem 5rem;
       position: relative;
       overflow: hidden;
     }
@@ -160,7 +165,7 @@
       color: #6ee7b7;
     }
     .hero h1 {
-      font-size: 2.75rem;
+      font-size: 2.85rem;
       font-weight: 900;
       line-height: 1.15;
       margin-bottom: 1.2rem;
@@ -172,70 +177,183 @@
       -webkit-text-fill-color: transparent;
     }
     .hero p.lead {
-      font-size: 1.1rem;
+      font-size: 1.12rem;
       opacity: 0.92;
       line-height: 1.65;
       margin-bottom: 2rem;
       color: #e2e8f0;
       max-width: 580px;
     }
-    .hero-actions {
+    .hero-store-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 0.85rem;
       align-items: center;
       margin-bottom: 2rem;
     }
-    .btn-hero-primary {
-      background: #10b981;
-      color: #0f172a;
-      padding: 0.85rem 1.75rem;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
+    .store-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+      gap: 0.75rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
       transition: all 0.2s;
+      cursor: pointer;
     }
-    .btn-hero-primary:hover {
-      background: #34d399;
+    .store-btn-apple {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+    .store-btn-apple:hover {
+      background: #f8fafc;
       transform: translateY(-2px);
     }
-    .btn-hero-outline {
+    .store-btn-google {
       background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 0.85rem 1.5rem;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
       backdrop-filter: blur(8px);
-      transition: all 0.2s;
     }
-    .btn-hero-outline:hover {
+    .store-btn-google:hover {
       background: rgba(255, 255, 255, 0.22);
       transform: translateY(-2px);
+    }
+    .store-btn-apk {
+      background: #059669;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
+    }
+    .store-btn-apk:hover {
+      background: #047857;
+      transform: translateY(-2px);
+    }
+    .store-btn-web {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px dashed rgba(255, 255, 255, 0.35);
+    }
+    .store-btn-web:hover {
+      color: #ffffff;
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      max-width: 540px;
+    }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #34d399;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Mockup de Celular Visual */
+    .mockup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-mockup {
+      width: 320px;
+      background: #0f172a;
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      position: relative;
+    }
+    .phone-screen {
+      background: #f8fafc;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+    }
+    .phone-header {
+      background: #ffffff;
+      padding: 1rem 1rem 0.6rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .phone-badge-gps {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .phone-body {
+      padding: 1rem;
+    }
+    .phone-map-card {
+      background: #e2e8f0;
+      height: 140px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: 
+        linear-gradient(rgba(5, 150, 105, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5, 150, 105, 0.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: #f1f5f9;
+    }
+    .phone-pin {
+      font-size: 2.2rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .phone-card-content {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 0.85rem;
+      border: 1px solid #e2e8f0;
+      margin-top: 0.75rem;
     }
 
     /* Container Global */
     .container {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 4.5rem 1.5rem;
+      padding: 5rem 1.5rem;
     }
 
     /* Encabezados de Sección */
     .section-header {
       text-align: center;
       max-width: 720px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 3.5rem;
     }
     .section-tag {
       color: var(--primary);
@@ -251,7 +369,7 @@
       border: 1px solid #a7f3d0;
     }
     .section-title {
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       font-weight: 900;
       color: var(--dark);
       line-height: 1.2;
@@ -264,125 +382,408 @@
       line-height: 1.6;
     }
 
-    /* FORMULARIO DE REPORTE VECINAL EN LÍNEA */
-    .report-form-card {
+    /* Manifiesto del Poder Vecinal */
+    .manifesto-box {
       background: #ffffff;
       border: 2px solid #e2e8f0;
       border-radius: 28px;
-      padding: 2.5rem 2.25rem;
-      box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.07);
-      margin-bottom: 4.5rem;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 5rem;
       position: relative;
     }
-    .form-step-title {
-      font-size: 0.95rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--dark);
-      margin-bottom: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .form-step-title span.num {
-      width: 24px;
-      height: 24px;
-      background: var(--primary);
-      color: white;
-      border-radius: 6px;
+    .manifesto-item {
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+    }
+    .manifesto-item:hover {
+      background: #ffffff;
+      border-color: #a7f3d0;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px -5px rgba(5, 150, 105, 0.1);
+    }
+    .manifesto-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .manifesto-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .manifesto-text {
+      font-size: 0.92rem;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    /* Guía Paso a Paso */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+    .step-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .step-row.reverse {
+      direction: rtl;
+    }
+    .step-row.reverse .step-content {
+      direction: ltr;
+    }
+    .step-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: white;
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.3);
+    }
+    .step-title {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+    .step-desc {
+      font-size: 1rem;
+      color: var(--slate);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .step-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--slate);
+    }
+    .step-points li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .step-points li span {
+      color: var(--primary);
       font-weight: 900;
     }
 
-    /* Mini Mapa Web */
-    #mapa-vecino-web {
-      height: 240px;
-      border-radius: 18px;
+    /* UI Visual de los Pasos (Mockups en CSS Puro) */
+    .step-visual-card {
+      background: #ffffff;
+      border-radius: 28px;
       border: 1px solid var(--border);
-      margin-bottom: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
       position: relative;
-      z-index: 10;
+    }
+    .interactive-pin-demo {
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid #cbd5e1;
+      position: relative;
+    }
+    .demo-map-canvas {
+      height: 180px;
+      background: #e2e8f0;
+      border-radius: 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: 
+        radial-gradient(#94a3b8 1px, transparent 1px),
+        radial-gradient(#94a3b8 1px, #f8fafc 1px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+    .demo-watermark-photo {
+      background: #1e293b;
+      border-radius: 18px;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    .demo-photo-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(15,23,42,0.92) 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      opacity: 0.35;
+    }
+    .demo-forensic-strip {
+      position: relative;
+      z-index: 2;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 3px solid #059669;
+      padding: 0.85rem 1rem;
+      font-size: 0.75rem;
+      font-family: monospace;
+    }
+
+    /* Tipos de Problemáticas */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .problem-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .problem-card:hover {
+      border-color: #059669;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.12);
+    }
+    .problem-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.85rem;
+    }
+    .problem-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .problem-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Sección de Descarga Centralizada */
+    .download-section {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: white;
+      border-radius: 32px;
+      padding: 4.5rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 20px 50px -10px rgba(5, 150, 105, 0.35);
+      position: relative;
+      overflow: hidden;
+      margin: 4rem 0 2rem;
+    }
+    .download-section h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .download-section p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+    .download-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .btn-download-big {
+      background: #ffffff;
+      color: #0f172a;
+      padding: 0.9rem 1.75rem;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+    }
+    .btn-download-big:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+    .btn-download-outline {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 0.9rem 1.75rem;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .btn-download-outline:hover {
+      background: rgba(255, 255, 255, 0.28);
+      transform: translateY(-2px);
+    }
+
+    /* ========================================================================= */
+    /* FORMULARIO DE REPORTE WEB INTERACTIVO (UNA SECCIÓN ANTES DE PREGUNTAS)   */
+    /* ========================================================================= */
+    .report-form-card {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 32px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .form-step-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-step-title span.num {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+
+    /* Mini Mapa Leaflet */
+    #mapa-vecino-web {
+      height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      margin-bottom: 0.75rem;
+      background: #f1f5f9;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
     }
     .map-helper-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #f1f5f9;
+      background: #f8fafc;
+      border: 1px solid var(--border);
       padding: 0.65rem 1rem;
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--slate);
       margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     .btn-gps-trigger {
-      background: #059669;
+      background: var(--primary);
       color: white;
       border: none;
-      padding: 0.4rem 0.85rem;
-      border-radius: 8px;
+      padding: 0.4rem 0.9rem;
+      border-radius: 10px;
       font-size: 0.75rem;
       font-weight: 800;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: background 0.2s;
+      gap: 0.35rem;
+      transition: all 0.2s;
     }
     .btn-gps-trigger:hover {
-      background: #047857;
+      background: var(--primary-dark);
+      transform: translateY(-1px);
     }
 
     .form-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
-      margin-bottom: 1.5rem;
     }
     .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+      margin-bottom: 1.25rem;
     }
     .form-label {
+      display: block;
       font-size: 0.82rem;
       font-weight: 800;
       color: var(--slate);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
     .form-input, .form-select, .form-textarea {
       width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 0.9rem;
-      font-family: inherit;
-      color: var(--dark);
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
       background: #ffffff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--dark);
+      transition: all 0.2s;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
     .form-input:focus, .form-select:focus, .form-textarea:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
     }
 
-    /* Selector de Problemáticas */
+    /* Selector Visual de Problemática */
     .problem-type-selector {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.75rem;
-      margin-bottom: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
     }
     .type-btn {
       background: #f8fafc;
       border: 2px solid var(--border);
-      border-radius: 14px;
-      padding: 0.85rem 0.75rem;
-      text-align: left;
+      border-radius: 16px;
+      padding: 1rem 0.85rem;
+      text-align: center;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -393,50 +794,52 @@
     .type-btn.active {
       border-color: var(--primary);
       background: var(--primary-light);
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
     }
     .type-btn .icon {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-bottom: 0.35rem;
     }
     .type-btn .title {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 800;
       color: var(--dark);
-      line-height: 1.2;
     }
     .type-btn .sub {
       font-size: 0.7rem;
       color: var(--muted);
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
-    /* Cámara / Foto Preview */
+    /* Carga de Foto */
     .photo-upload-box {
       border: 2px dashed #cbd5e1;
-      border-radius: 16px;
-      padding: 1.75rem;
+      border-radius: 20px;
+      padding: 2.25rem 1.5rem;
       text-align: center;
       background: #f8fafc;
-      margin-bottom: 1.75rem;
       cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
+      transition: all 0.2s;
+      margin-bottom: 1rem;
     }
     .photo-upload-box:hover {
       border-color: var(--primary);
-      background: #ffffff;
+      background: #ecfdf5;
     }
+
     .btn-submit-report {
+      width: 100%;
       background: linear-gradient(135deg, #059669 0%, #047857 100%);
       color: white;
-      width: 100%;
-      padding: 1rem;
-      border-radius: 14px;
       border: none;
+      padding: 1.15rem;
+      border-radius: 18px;
       font-size: 1.05rem;
       font-weight: 900;
+      letter-spacing: 0.02em;
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(5, 150, 105, 0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 10px 25px rgba(5, 150, 105, 0.35);
+      transition: all 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -444,63 +847,73 @@
     }
     .btn-submit-report:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(5, 150, 105, 0.45);
+      box-shadow: 0 15px 35px rgba(5, 150, 105, 0.45);
+    }
+    .btn-submit-report:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
 
-    /* Panel de Confirmación con Botón WhatsApp */
     .confirmation-panel {
       background: #ecfdf5;
-      border: 2px solid #86efac;
-      border-radius: 20px;
-      padding: 2rem;
-      margin-top: 1.5rem;
+      border: 2px solid #a7f3d0;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
       text-align: center;
+      margin-top: 2rem;
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .btn-whatsapp-share {
-      background: #25D366;
-      color: white;
-      padding: 0.85rem 1.6rem;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-top: 1rem;
-      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
-      transition: transform 0.2s;
+      gap: 0.5rem;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 1.6rem;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s;
     }
     .btn-whatsapp-share:hover {
+      background: #20bd5a;
       transform: translateY(-2px);
     }
 
-    /* Descargas de Apps Nativas */
-    .download-grid {
+    /* FAQ Cívico */
+    .faq-container {
+      max-width: 780px;
+      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 1.25rem;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
     }
-    .store-badge-card {
+    .faq-item {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 1.25rem 1.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      text-decoration: none;
-      color: var(--dark);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s;
+      padding: 1.5rem 1.75rem;
     }
-    .store-badge-card:hover {
-      transform: translateY(-3px);
-      border-color: #a7f3d0;
-      box-shadow: 0 12px 25px -5px rgba(5, 150, 105, 0.15);
+    .faq-q {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .faq-a {
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.6;
     }
 
     /* Footer */
@@ -556,25 +969,39 @@
       font-size: 0.82rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 868px) {
       .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2.5rem;
       }
       .hero p.lead {
         margin: 0 auto 2rem;
       }
-      .hero-actions {
+      .hero-store-buttons {
         justify-content: center;
       }
-      .form-grid-2 {
+      .hero-stats {
+        margin: 0 auto;
+      }
+      .step-row {
         grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .step-row.reverse {
+        direction: ltr;
       }
       .hero h1 {
         font-size: 2.2rem;
       }
       .container {
         padding: 3.5rem 1.25rem;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .report-form-card {
+        padding: 2rem 1.25rem;
       }
     }
   </style>
@@ -589,12 +1016,12 @@
         <span>Portal Vecinal · Apatzingán</span>
       </a>
       <div class="nav-links">
-        <a href="#formulario-reporte" class="nav-link">Reportar en Línea</a>
-        <a href="#como-funciona" class="nav-link">¿Cómo Funciona?</a>
-        <a href="#descarga-app" class="nav-link">Descargar App</a>
-        <a href="politica_privacidad.html" class="nav-link">Privacidad</a>
-        <a href="#formulario-reporte" class="btn-nav-action">
-          <span>📍</span> Levantar Reporte
+        <a href="#como-funciona" class="nav-link">¿Cómo Reportar?</a>
+        <a href="#fuerza-vecinal" class="nav-link">Poder Colectivo</a>
+        <a href="#descarga" class="nav-link">Descargar App</a>
+        <a href="#preguntas-frecuentes" class="nav-link">Preguntas</a>
+        <a href="#reporte-en-linea" class="btn-nav-action">
+          <span>📲</span> Reportar en Línea
         </a>
       </div>
     </div>
@@ -613,55 +1040,415 @@
         <p class="lead">
           Los problemas de nuestras calles no se resuelven esperando: se resuelven cuando los vecinos nos organizamos. Reporta basureros clandestinos, lotes con maleza, baches o luminarias apagadas con evidencia satelital. Tú y tu colonia tienen el poder de decidir.
         </p>
-        <div class="hero-actions">
-          <a href="#formulario-reporte" class="btn-hero-primary">
-            <span>📝</span> Reportar en Línea Directo
+
+        <!-- Botones de Descarga en Tiendas, APK y Web -->
+        <div class="hero-store-buttons">
+          <a href="#descarga" class="store-btn store-btn-apple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.9.04-1.99.6-2.63 1.35-.57.65-.96 1.73-.83 2.76.99.08 2.02-.51 2.54-1.24z"/>
+            </svg>
+            <span>App Store (iOS)</span>
           </a>
-          <a href="#descarga-app" class="btn-hero-outline">
-            <span>📲</span> Descargar App Móvil
+
+          <a href="#descarga" class="store-btn store-btn-google">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a2.026 2.026 0 0 1-.61-1.46V3.274c0-.56.22-1.07.609-1.46zm11.36 11.36l2.124 2.124-11.23 6.442 9.106-8.566zm0-2.348L5.863 2.26l11.23 6.442-2.124 2.124zm1.533 1.174l3.864-2.217c.806-.462.806-1.218 0-1.68l-3.864-2.217-2.35 2.35 2.35 2.35z"/>
+            </svg>
+            <span>Google Play</span>
           </a>
+
+          <a href="https://github.com/coloapp/crmCampo/raw/main/APKs/Brigadas_Hugo_Molina_Apatzingan_v2.6.0_p1.apk" class="store-btn store-btn-apk">
+            <span>📥</span>
+            <span>Descarga Directa APK</span>
+          </a>
+
+          <a href="#reporte-en-linea" class="store-btn store-btn-web">
+            <span>🌐</span>
+            <span>Reportar en Línea sin instalar</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Comunitario y Gratuito</div>
+          </div>
+          <div>
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Colonias Conectadas</div>
+          </div>
+          <div>
+            <div class="stat-number">0</div>
+            <div class="stat-label">Trámites burocráticos</div>
+          </div>
         </div>
       </div>
 
-      <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); border-radius: 28px; padding: 2rem; text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🧹</div>
-        <h3 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem;">
-          Acción Directa en tu Calle
-        </h3>
-        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1.5rem;">
-          Una queja aislada se archiva. Cuando 30 vecinos reportan el mismo punto con foto satelital, ¡las cuadrillas acuden con camiones y herramientas!
-        </p>
-        <div style="background: rgba(16,185,129,0.2); border: 1px solid #10b981; padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.8rem; font-weight: 700; color: #6ee7b7; display: inline-block;">
-          ✓ 100% Gratuito y sin partidos
+      <!-- Mockup Visual -->
+      <div class="mockup-container">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div style="font-weight: 800; font-size: 0.85rem; color: #0f172a;">
+                🏘️ Modo Vecino
+              </div>
+              <div class="phone-badge-gps">
+                <span style="display:inline-block; width:6px; height:6px; background:#059669; border-radius:50%;"></span>
+                GPS Satelital Activo
+              </div>
+            </div>
+
+            <div class="phone-body">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.4rem;">
+                📍 Paso 1: Ubicación en Mapa
+              </div>
+
+              <!-- Mini Mapa Visual de Ejemplo -->
+              <div class="phone-map-card">
+                <div class="phone-pin">📍</div>
+                <div style="position: absolute; bottom: 8px; left: 8px; right: 8px; background: rgba(255,255,255,0.92); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: 8px; font-size: 0.65rem; font-weight: 700; color: #0f172a; text-align: center; border: 1px solid #cbd5e1;">
+                  Pin fijado: Col. Babilonia (19.0915, -102.3535)
+                </div>
+              </div>
+
+              <!-- Tarjeta de Punto Crítico -->
+              <div class="phone-card-content">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+                  <span style="font-size: 1.1rem;">🗑️</span>
+                  <div style="font-weight: 800; font-size: 0.8rem; color: #0f172a;">Basurero Clandestino</div>
+                </div>
+                <div style="font-size: 0.7rem; color: #64748b;">
+                  Av. Corregidora esq. Vías FFCC
+                </div>
+                <div style="margin-top: 0.5rem; padding-top: 0.4rem; border-top: 1px dashed #e2e8f0; display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem;">
+                  <span style="color: #059669; font-weight: 800;">✓ Evidencia lista</span>
+                  <span style="color: #2563eb; font-weight: 800;">+32 vecinos unidos</span>
+                </div>
+              </div>
+
+              <!-- Botón Simulado -->
+              <a href="#reporte-en-linea" style="display:block; margin-top: 0.75rem; background: #059669; color: white; padding: 0.65rem; border-radius: 12px; font-weight: 800; font-size: 0.75rem; text-align: center; text-decoration: none; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);">
+                🧹 ENVIAR REPORTE OFICIAL
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contenedor Principal -->
+  <!-- Contenedor Principal de Secciones -->
   <main class="container">
 
-    <!-- FORMULARIO OFICIAL DE REPORTE CIUDADANO EN LÍNEA -->
-    <section id="formulario-reporte" class="report-form-card">
+    <!-- SECCIÓN 1: MANIFIESTO DEL PODER VECINAL -->
+    <section id="fuerza-vecinal" class="manifesto-box">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="section-tag">Fuerza Colectiva</span>
+        <h2 class="section-title">¿Por qué la unión vecinal sí da resultados?</h2>
+        <p class="section-subtitle">
+          El abandono de los servicios públicos se supera cuando la colonia entera habla con una sola voz organizada y evidencia contundente.
+        </p>
+      </div>
+
+      <div class="manifesto-grid">
+        <div class="manifesto-item">
+          <div class="manifesto-icon">🗣️</div>
+          <h3 class="manifesto-title">Los Vecinos Mandan</h3>
+          <p class="manifesto-text">
+            Nadie conoce las necesidades de la colonia mejor que las familias que caminan por ella todos los días. La plataforma empodera a los vecinos para priorizar los problemas urgentes.
+          </p>
+        </div>
+
+        <div class="manifesto-item">
+          <div class="manifesto-icon">⚡</div>
+          <h3 class="manifesto-title">La Regla de los 30 a 50 Vecinos</h3>
+          <p class="manifesto-text">
+            Una llamada aislada al ayuntamiento termina archivada. Pero cuando de 30 a 50 vecinos reportan el mismo lote o luminaria, ¡la autoridad no puede ignorar el reclamo comunitario!
+          </p>
+        </div>
+
+        <div class="manifesto-item">
+          <div class="manifesto-icon">🛰️</div>
+          <h3 class="manifesto-title">Evidencia con Respaldo Satelital</h3>
+          <p class="manifesto-text">
+            Cada reporte lleva fotografía con coordenadas satelitales GNSS y sello de tiempo inalterable, creando un expediente formal de gestión para el Cabildo y Obras Públicas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: CÓMO HACER TU REPORTE EN 3 MINUTOS -->
+    <section id="como-funciona" class="steps-container">
+      <div class="section-header">
+        <span class="section-tag">Guía Rápida</span>
+        <h2 class="section-title">Cómo hacer tu reporte en 3 minutos</h2>
+        <p class="section-subtitle">
+          Diseñado para que cualquier vecino, sin importar su edad, pueda reportar fácilmente desde su teléfono sin contraseñas difíciles.
+        </p>
+      </div>
+
+      <!-- Paso 1 -->
+      <div class="step-row">
+        <div class="step-content">
+          <div class="step-badge">1</div>
+          <h3 class="step-title">Descarga la App o abre la Web</h3>
+          <p class="step-desc">
+            Instala la aplicación en tu celular Android o iPhone, o abre directamente el portal web desde tu navegador si no deseas instalar nada. Es completamente gratuito y no pide datos bancarios ni suscripciones.
+          </p>
+          <ul class="step-points">
+            <li><span>✓</span> Disponible en App Store y Google Play</li>
+            <li><span>✓</span> Descarga directa de APK sin intermediarios</li>
+            <li><span>✓</span> Modo Web Inmediato: Úsalo al instante sin ocupar memoria</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="step-visual-card">
+            <div style="text-align: center; padding: 2rem 1rem;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">📲</div>
+              <div style="font-weight: 800; font-size: 1.15rem; color: #0f172a; margin-bottom: 0.5rem;">Instalación Inmediata</div>
+              <p style="font-size: 0.85rem; color: #64748b; max-width: 280px; margin: 0 auto 1.25rem;">Compatible con cualquier teléfono inteligente o computadora en Apatzingán.</p>
+              <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                <span style="background: #f1f5f9; padding: 0.3rem 0.7rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; color: #334155;">iOS 14+</span>
+                <span style="background: #f1f5f9; padding: 0.3rem 0.7rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; color: #334155;">Android 8+</span>
+                <span style="background: #f1f5f9; padding: 0.3rem 0.7rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; color: #334155;">Chrome / Safari</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="step-row reverse">
+        <div class="step-content">
+          <div class="step-badge">2</div>
+          <h3 class="step-title">Toca en "Modo Vecino" y entra directo</h3>
+          <p class="step-desc">
+            Al abrir la aplicación, encontrarás la pestaña destacada "Modo Vecino / Mi Colonia". Con un solo toque accedes al centro comunitario sin registros pesados ni contraseñas que se olviden.
+          </p>
+          <ul class="step-points">
+            <li><span>✓</span> Acceso público e inmediato para toda la comunidad</li>
+            <li><span>✓</span> Elige entre reportar un punto o unirte a la brigada de limpieza</li>
+            <li><span>✓</span> Conoce el estado de los servicios en tu colonia</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="step-visual-card">
+            <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 20px; padding: 1.5rem; text-align: center;">
+              <div style="display: inline-block; background: #059669; color: white; padding: 0.4rem 1rem; border-radius: 9999px; font-weight: 800; font-size: 0.85rem; margin-bottom: 0.75rem;">
+                💚 Modo Vecino / Mi Colonia
+              </div>
+              <div style="font-size: 0.85rem; color: #065f46; font-weight: 700;">Canal cívico para vecinos organizados</div>
+              <div style="margin-top: 1rem; background: white; border-radius: 12px; padding: 0.85rem; display: flex; align-items: center; justify-content: space-between; border: 1px solid #cbd5e1;">
+                <span style="font-weight: 800; font-size: 0.85rem; color: #0f172a;">Limpiemos la Ciudad 🧹</span>
+                <span style="background: #fef2f2; color: #991b1b; font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 6px;">Acción Directa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="step-row">
+        <div class="step-content">
+          <div class="step-badge">3</div>
+          <h3 class="step-title">Ubica el basurero o problema en el mapa</h3>
+          <p class="step-desc">
+            No necesitas estar parado sobre la basura. Si estás en tu casa o trabajo, mueve el pin rojo 📍 sobre el mapa interactivo o selecciona tu colonia en la lista. El sistema fija automáticamente las coordenadas GPS exactas.
+          </p>
+          <ul class="step-points">
+            <li><span>✓</span> Pin interactivo arrastrable para marcar la esquina exacta</li>
+            <li><span>✓</span> Botón "Mi GPS" para captura satelital automática</li>
+            <li><span>✓</span> Coordenadas oficiales de todas las colonias de Apatzingán</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="step-visual-card">
+            <div class="interactive-pin-demo">
+              <div class="demo-map-canvas">
+                <div style="font-size: 2.5rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">📍</div>
+                <div style="position: absolute; top: 10px; left: 10px; background: #0f172a; color: white; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; font-family: monospace;">
+                  Lat: 19.0883, Lng: -102.3564
+                </div>
+              </div>
+              <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #475569; font-weight: 700;">
+                <span>Colonia de Apatzingán:</span>
+                <span style="background: white; padding: 3px 8px; border-radius: 6px; border: 1px solid #cbd5e1;">Col. Lázaro Cárdenas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="step-row reverse">
+        <div class="step-content">
+          <div class="step-badge">4</div>
+          <h3 class="step-title">Toma la foto con evidencia forense</h3>
+          <p class="step-desc">
+            Abre la cámara desde la app y toma la fotografía del basurero, maleza o bache. La app le estampa automáticamente una franja con fecha, hora, colonia y coordenadas satelitales. Esta marca de agua oficial garantiza que el reporte es legítimo.
+          </p>
+          <ul class="step-points">
+            <li><span>✓</span> Fotografía certificada con marca de agua inalterable</li>
+            <li><span>✓</span> Respaldo Zero-Disk: Se transmite directo a Telegram sin llenar tu teléfono</li>
+            <li><span>✓</span> Genera folio único para seguimiento vecinal</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="step-visual-card">
+            <div class="demo-watermark-photo">
+              <div class="demo-photo-bg">📸 EVIDENCIA</div>
+              <div class="demo-forensic-strip">
+                <div>📍 19.08830, -102.35640 · APATZINGÁN</div>
+                <div style="color: #34d399; font-size: 0.7rem;">COL. FERROCARRILERA · 15/NOV/2026 10:45 AM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 5 -->
+      <div class="step-row">
+        <div class="step-content">
+          <div class="step-badge">5</div>
+          <h3 class="step-title">Multiplica el poder de tu colonia por WhatsApp</h3>
+          <p class="step-desc">
+            Al terminar tu reporte, presiona "Compartir con vecinos". El sistema prepara un mensaje para WhatsApp para que tus vecinos de cuadra también reporten. Con 30 reportes juntos, ¡la solución ante el ayuntamiento es inmediata!
+          </p>
+          <ul class="step-points">
+            <li><span>✓</span> Mensaje pre-diseñado para grupos vecinales de WhatsApp</li>
+            <li><span>✓</span> Enlace directo para que más vecinos sumen su firma satelital</li>
+            <li><span>✓</span> Notificación cuando se programe la brigada de limpieza</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="step-visual-card">
+            <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 20px; padding: 1.5rem; text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👥💬</div>
+              <div style="font-weight: 800; font-size: 1rem; color: #166534; margin-bottom: 0.35rem;">
+                ¡Fuerza Colectiva Activada!
+              </div>
+              <p style="font-size: 0.8rem; color: #15803d; margin-bottom: 1rem;">
+                "Vecinos, ya reporté el lote de la esquina. Entren aquí y sumen su reporte para que nos manden el camión esta semana."
+              </p>
+              <div style="background: #25d366; color: white; padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.8rem; font-weight: 800; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span>📲</span> Compartir en Grupos de WhatsApp
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: QUÉ PROBLEMÁTICAS PUEDES REPORTAR -->
+    <section style="margin-top: 5rem;">
+      <div class="section-header">
+        <span class="section-tag">Cobertura Municipal</span>
+        <h2 class="section-title">¿Qué problemáticas puedes reportar?</h2>
+        <p class="section-subtitle">
+          Todo aquello que afecte la dignidad, la salud y la seguridad de tu calle puede ser mapeado y gestionado.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">🗑️</div>
+          <h3 class="problem-title">Basureros Clandestinos</h3>
+          <p class="problem-desc">Esquinas, banquetas o canales donde se acumula basura doméstica, plásticos o focos de infección.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">🌿</div>
+          <h3 class="problem-title">Lotes Baldíos con Maleza</h3>
+          <p class="problem-desc">Predios abandonados con pastizal alto que acumulan fauna nociva y generan inseguridad para las familias.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">🪨</div>
+          <h3 class="problem-title">Escombros y Chatarra</h3>
+          <p class="problem-desc">Material de construcción abandonado, autos chatarra o muebles viejos estorbando el paso de peatones.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">💡</div>
+          <h3 class="problem-title">Alumbrado Público</h3>
+          <p class="problem-desc">Lámparas fundidas, postes dañados o calles a oscuras que ponen en riesgo a quienes regresan del trabajo.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">💧</div>
+          <h3 class="problem-title">Fugas de Agua y Drenaje</h3>
+          <p class="problem-desc">Tuberías rotas de agua potable o brotes de aguas negras que requieren desazolve inmediato de cuadrillas.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">🌳</div>
+          <h3 class="problem-title">Parques y Espacios Públicos</h3>
+          <p class="problem-desc">Canchas deportivas, jardines y áreas verdes que necesitan poda, pintura, limpieza y rehabilitación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: DESCARGA CENTRALIZADA DE LA APP -->
+    <section id="descarga" class="download-section">
+      <h2>Descarga la App Vecinal en tu Teléfono</h2>
+      <p>
+        Súmate a los cientos de vecinos de Apatzingán que ya están transformando sus colonias. Elige tu plataforma o abre el portal en línea:
+      </p>
+
+      <div class="download-grid">
+        <a href="https://apps.apple.com" class="btn-download-big">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.9.04-1.99.6-2.63 1.35-.57.65-.96 1.73-.83 2.76.99.08 2.02-.51 2.54-1.24z"/>
+          </svg>
+          <span>Descargar en App Store</span>
+        </a>
+
+        <a href="https://play.google.com" class="btn-download-big">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a2.026 2.026 0 0 1-.61-1.46V3.274c0-.56.22-1.07.609-1.46zm11.36 11.36l2.124 2.124-11.23 6.442 9.106-8.566zm0-2.348L5.863 2.26l11.23 6.442-2.124 2.124zm1.533 1.174l3.864-2.217c.806-.462.806-1.218 0-1.68l-3.864-2.217-2.35 2.35 2.35 2.35z"/>
+          </svg>
+          <span>Descargar en Google Play</span>
+        </a>
+
+        <a href="https://github.com/coloapp/crmCampo/raw/main/APKs/Brigadas_Hugo_Molina_Apatzingan_v2.6.0_p1.apk" class="btn-download-outline">
+          <span>📥</span>
+          <span>Descargar APK Android (v2.6.0)</span>
+        </a>
+
+        <a href="#reporte-en-linea" class="btn-download-outline">
+          <span>🌐</span>
+          <span>Reportar en Línea (Sin Descargar)</span>
+        </a>
+      </div>
+
+      <div style="font-size: 0.85rem; opacity: 0.85; max-width: 500px; margin: 0 auto;">
+        * No requiere pagos ni suscripciones. La aplicación funciona con o sin conexión a internet y sincroniza tus reportes en cuanto recuperas señal.
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN 5: FORMULARIO DE REPORTE EN LÍNEA (UNA SECCIÓN ANTES DE PREGUNTAS)-->
+    <!-- ========================================================================= -->
+    <section id="reporte-en-linea" class="report-form-card" style="margin-top: 4.5rem;">
       <div style="border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; margin-bottom: 2rem;">
         <span class="section-tag">Formulario Comunitario Oficial</span>
-        <h2 style="font-size: 1.85rem; font-weight: 900; color: var(--dark); margin-top: 0.5rem;">
-          📍 Reporta un Punto Sucio o Falla de Servicios en tu Colonia
+        <h2 style="font-size: 1.95rem; font-weight: 900; color: var(--dark); margin-top: 0.5rem; letter-spacing: -0.02em;">
+          📍 Levanta tu Reporte Vecinal en Línea
         </h2>
-        <p style="font-size: 0.95rem; color: var(--muted);">
-          Completa los datos a continuación. El reporte se transmite en tiempo real a la mesa de gestión comunitaria y a los enlaces de Aseo y Obras Públicas.
+        <p style="font-size: 0.95rem; color: var(--muted); margin-top: 0.35rem;">
+          Si prefieres no descargar la app, puedes enviar tu reporte ciudadano aquí mismo. Los datos y la fotografía forense se transmiten en tiempo real para coordinar la brigada de rescate.
         </p>
       </div>
 
       <form id="form-vecino-web" onsubmit="event.preventDefault(); enviarReporteWeb();">
         
-        <!-- PASO 1: UBICACIÓN Y MAPA -->
+        <!-- PASO 1: UBICACIÓN Y MINI-MAPA LEAFLET -->
         <div style="margin-bottom: 2rem;">
           <div class="form-step-title">
             <span class="num">1</span> Ubicación Exacta del Problema (Mapa Satelital)
           </div>
 
-          <!-- Mini Mapa Leaflet -->
+          <!-- Mini Mapa Leaflet con Pin Arrastrable -->
           <div id="mapa-vecino-web"></div>
 
           <div class="map-helper-bar">
@@ -747,7 +1534,7 @@
           </div>
         </div>
 
-        <!-- PASO 3: FOTO CON ESTAMPA FORENSE -->
+        <!-- PASO 3: FOTOGRAFÍA CON MARCA DE AGUA FORENSE -->
         <div style="margin-bottom: 2rem;">
           <div class="form-step-title">
             <span class="num">3</span> Fotografía con Evidencia Forense Satelital
@@ -798,7 +1585,7 @@
           <div style="display: flex; align-items: center; gap: 0.6rem; background: #f8fafc; padding: 0.85rem; border-radius: 12px; border: 1px solid var(--border);">
             <input type="checkbox" id="web-chk-unirse" checked style="width: 18px; height: 18px; accent-color: var(--primary);" />
             <label for="web-chk-unirse" style="font-size: 0.85rem; font-weight: 700; color: var(--dark); cursor: pointer;">
-              🤝 Deseo que me avisen por WhatsApp cuando acuda la brigada a limpiar mi colonia.
+              🤝 Deseo unirme con mi escoba a la brigada comunitaria de limpieza de mi colonia.
             </label>
           </div>
         </div>
@@ -828,143 +1615,167 @@
       </div>
     </section>
 
-    <!-- SECCIÓN: CÓMO DESCARGAR LA APP NATIVA -->
-    <section id="descarga-app" style="margin-bottom: 4rem;">
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN 6: PREGUNTAS FRECUENTES DE LA COMUNIDAD (DESPUÉS DEL FORMULARIO) -->
+    <!-- ========================================================================= -->
+    <section id="preguntas-frecuentes" style="margin-top: 4.5rem;">
       <div class="section-header">
-        <span class="section-tag">Aplicación Móvil</span>
-        <h2 class="section-title">Instala la App en tu Celular</h2>
+        <span class="section-tag">Dudas Comunes</span>
+        <h2 class="section-title">Preguntas Frecuentes de los Vecinos</h2>
         <p class="section-subtitle">
-          Ten siempre a la mano el portal vecinal para reportar problemáticas, unirte a comités y consultar el mapa de tu colonia sin consumir datos móviles.
+          Todo lo que necesitas saber sobre la herramienta comunitaria y el seguimiento de tu reporte.
         </p>
       </div>
 
-      <div class="download-grid">
-        <a href="https://apps.apple.com" class="store-badge-card">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.9.04-1.99.6-2.63 1.35-.57.65-.96 1.73-.83 2.76.99.08 2.02-.51 2.54-1.24z"/>
-          </svg>
-          <div>
-            <div style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; font-weight: 700;">Descargar en</div>
-            <div style="font-size: 1.05rem; font-weight: 800;">Apple App Store</div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>❓</span> ¿Tiene algún costo hacer un reporte o usar la aplicación?
           </div>
-        </a>
+          <div class="faq-a">
+            No, es 100% gratuita y de libre acceso. Es una herramienta tecnológica cívica diseñada para beneficio exclusivo de los habitantes y familias de Apatzingán.
+          </div>
+        </div>
 
-        <a href="https://play.google.com" class="store-badge-card">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3.609 1.814L13.792 12 3.61 22.186a2.026 2.026 0 0 1-.61-1.46V3.274c0-.56.22-1.07.609-1.46zm11.36 11.36l2.124 2.124-11.23 6.442 9.106-8.566zm0-2.348L5.863 2.26l11.23 6.442-2.124 2.124zm1.533 1.174l3.864-2.217c.806-.462.806-1.218 0-1.68l-3.864-2.217-2.35 2.35 2.35 2.35z"/>
-          </svg>
-          <div>
-            <div style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; font-weight: 700;">Disponible en</div>
-            <div style="font-size: 1.05rem; font-weight: 800;">Google Play</div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>❓</span> ¿Tengo que crear contraseñas o ingresar datos confidenciales?
           </div>
-        </a>
+          <div class="faq-a">
+            No. Para hacer un reporte solo se solicita tu nombre y tu número de WhatsApp para poder enviarte el número de folio y notificarte cuando la brigada acuda a tu colonia a limpiar o reparar el problema.
+          </div>
+        </div>
 
-        <a href="https://github.com/coloapp/crmCampo/raw/main/APKs/Brigadas_Hugo_Molina_Apatzingan_v2.6.0_p1.apk" class="store-badge-card" style="border-color: #a7f3d0; background: #ecfdf5;">
-          <div style="font-size: 1.8rem;">📥</div>
-          <div>
-            <div style="font-size: 0.72rem; color: #047857; text-transform: uppercase; font-weight: 800;">Descarga Directa</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46;">APK Android (v2.6.0)</div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>❓</span> ¿Qué pasa si estoy en un lugar sin señal de celular o sin datos?
           </div>
-        </a>
+          <div class="faq-a">
+            La app cuenta con tecnología satelital sin conexión (offline). Puedes tomar la foto y capturar la ubicación en el mapa; el reporte se guarda de forma segura en tu teléfono y se transmite en cuanto te conectes a una red WiFi o tengas señal móvil.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>❓</span> ¿Cómo se coordina la solución con las autoridades?
+          </div>
+          <div class="faq-a">
+            Cada reporte genera un folio oficial con fotografía forense y coordenadas geográficas. Estos expedientes se canalizan directamente ante la Dirección de Aseo Público, Obras Públicas y Parques y Jardines para coordinar camiones recolectores, palas, carretillas y cuadrillas municipales.
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Pie de Página -->
+  <!-- Pie de Página Institucional -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
         <h4>🏘️ Portal Vecinal Apatzingán</h4>
         <p>
-          Herramienta comunitaria de participación y reporte cívico para las familias y colonias de Apatzingán, Michoacán.
+          Herramienta comunitaria de participación y reporte cívico para las familias y colonias de Apatzingán, Michoacán. Sin fines de lucro ni afiliaciones partidistas.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>Enlaces de Interés</h4>
+        <h4>Enlaces Rápidos</h4>
         <ul class="footer-links">
-          <li><a href="#formulario-reporte">Reportar en Línea</a></li>
-          <li><a href="politica_privacidad.html">Aviso de Privacidad</a></li>
-          <li><a href="soporte.html">Soporte y Contacto</a></li>
-          <li><a href="marketing.html">Acerca de la Plataforma</a></li>
+          <li><a href="#reporte-en-linea">Reportar en Línea</a></li>
+          <li><a href="#como-funciona">¿Cómo Funciona?</a></li>
+          <li><a href="#fuerza-vecinal">Poder Colectivo</a></li>
+          <li><a href="#descarga">Descargar Aplicación</a></li>
+          <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Contacto Comunitario</h4>
-        <p>
-          Atención cívica directa en Apatzingán:<br>
-          WhatsApp: +52 33 1774 2619<br>
-          Todos los reportes son gratuitos y confidenciales.
+        <h4>Descarga Móvil</h4>
+        <ul class="footer-links">
+          <li><a href="#descarga">Apple App Store (iOS)</a></li>
+          <li><a href="#descarga">Google Play Store (Android)</a></li>
+          <li><a href="https://github.com/coloapp/crmCampo/raw/main/APKs/Brigadas_Hugo_Molina_Apatzingan_v2.6.0_p1.apk">Descarga Directa APK v2.6.0</a></li>
+          <li><a href="soporte.html">Soporte Técnico WhatsApp</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Privacidad & Confianza</h4>
+        <p style="margin-bottom: 0.75rem;">
+          Tus datos personales y de ubicación están protegidos. Consulta nuestros términos y avisos legales:
         </p>
+        <ul class="footer-links">
+          <li><a href="politica_privacidad.html">Aviso de Privacidad Integral</a></li>
+          <li><a href="marketing.html">Márketing y Difusión</a></li>
+        </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      &copy; 2026 Portal Vecinal Apatzingán · Fuerza y Organización Comunitaria.
+      &copy; 2026 Portal Vecinal Apatzingán · Participación Ciudadana y Organización Comunitaria.
     </div>
   </footer>
 
-  <!-- SCRIPT DE GEOLOCALIZACIÓN Y TRANSMISIÓN DIRECTA A TELEGRAM (ZERO-DISK) -->
+  <!-- Leaflet JS para el Mini Mapa -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <script>
-    // Catálogo territorial oficial de Apatzingán
+    /**
+     * MOTOR JAVASCRIPT DEL PORTAL VECINAL Y REPORTE WEB CON MAPA
+     */
     const COLONIAS_APATZINGAN = [
-      { nombre: 'Centro Histórico', lat: 19.0883, lng: -102.3564 },
-      { nombre: 'Col. Babilonia', lat: 19.0915, lng: -102.3535 },
-      { nombre: 'Col. Ferrocarril', lat: 19.0880, lng: -102.3500 },
-      { nombre: 'Col. El Varillero', lat: 19.0925, lng: -102.3440 },
-      { nombre: 'Col. Lázaro Cárdenas', lat: 19.0835, lng: -102.3610 },
-      { nombre: 'Col. Palmira', lat: 19.0890, lng: -102.3680 },
-      { nombre: 'Fracc. Los Limones', lat: 19.0895, lng: -102.3670 },
-      { nombre: 'Col. Buenos Aires', lat: 19.0930, lng: -102.3660 },
-      { nombre: 'Col. Tierra y Libertad', lat: 19.0965, lng: -102.3525 },
-      { nombre: 'Col. 22 de Octubre', lat: 19.0950, lng: -102.3510 },
-      { nombre: 'Col. Bellavista', lat: 19.0940, lng: -102.3580 },
-      { nombre: 'Col. Las Palmas', lat: 19.0870, lng: -102.3480 },
-      { nombre: 'Col. La Florida', lat: 19.0865, lng: -102.3470 },
-      { nombre: 'Col. Pénjamo', lat: 19.0790, lng: -102.3690 },
-      { nombre: 'Col. Santa Rosa', lat: 19.0750, lng: -102.3620 },
-      { nombre: 'Col. San Juanico', lat: 19.0760, lng: -102.3600 },
-      { nombre: 'Col. Las Palmeras', lat: 19.0770, lng: -102.3580 },
-      { nombre: 'Col. La Chole', lat: 19.0810, lng: -102.3540 },
-      { nombre: 'Col. San Jerónimo', lat: 19.0820, lng: -102.3570 },
-      { nombre: 'Col. Valle Dorado', lat: 19.0840, lng: -102.3640 },
-      { nombre: 'Col. Lomas del Valle', lat: 19.0850, lng: -102.3660 },
-      { nombre: 'Col. Benito Juárez', lat: 19.0860, lng: -102.3590 },
-      { nombre: 'Col. Adolfo Ruiz Cortines', lat: 19.0890, lng: -102.3420 },
-      { nombre: 'Col. 18 de Marzo', lat: 19.0900, lng: -102.3460 },
-      { nombre: 'Col. Tierras Blancas', lat: 19.0720, lng: -102.3550 },
-      { nombre: 'Acahuato', lat: 19.1430, lng: -102.3270 },
-      { nombre: 'San Juan de los Plátanos', lat: 19.0490, lng: -102.4690 },
-      { nombre: 'Chandio', lat: 19.0350, lng: -102.3800 },
-      { nombre: 'Holanda', lat: 19.0620, lng: -102.3950 }
+      { nombre: "Centro", lat: 19.08830, lng: -102.35640 },
+      { nombre: "Babilonia", lat: 19.09150, lng: -102.35350 },
+      { nombre: "Ferrocarrilera", lat: 19.08800, lng: -102.35000 },
+      { nombre: "Lázaro Cárdenas", lat: 19.08350, lng: -102.36100 },
+      { nombre: "El Varillero", lat: 19.09250, lng: -102.34400 },
+      { nombre: "Benito Juárez", lat: 19.08100, lng: -102.35200 },
+      { nombre: "Buenos Aires", lat: 19.08600, lng: -102.36800 },
+      { nombre: "La Florida", lat: 19.09500, lng: -102.35800 },
+      { nombre: "Palmira", lat: 19.07900, lng: -102.36300 },
+      { nombre: "Tierras Blancas", lat: 19.09800, lng: -102.36500 },
+      { nombre: "Adolfo Ruiz Cortines", lat: 19.08400, lng: -102.34500 },
+      { nombre: "18 de Marzo", lat: 19.09300, lng: -102.35000 },
+      { nombre: "La Pradera", lat: 19.07600, lng: -102.35900 },
+      { nombre: "Las Palmas", lat: 19.08900, lng: -102.37200 },
+      { nombre: "Josefa Ortiz de Domínguez", lat: 19.08200, lng: -102.34800 },
+      { nombre: "Emiliano Zapata", lat: 19.07500, lng: -102.35400 },
+      { nombre: "El Mirador", lat: 19.09900, lng: -102.35200 },
+      { nombre: "Los Pinos", lat: 19.08700, lng: -102.34100 },
+      { nombre: "San Juan de los Plátanos", lat: 19.06500, lng: -102.40500 },
+      { nombre: "Chandio", lat: 19.05200, lng: -102.32500 },
+      { nombre: "Acahuato", lat: 19.14500, lng: -102.32800 },
+      { nombre: "Holanda", lat: 19.04100, lng: -102.38000 },
+      { nombre: "El Recreo", lat: 19.09400, lng: -102.36200 },
+      { nombre: "Magisterial", lat: 19.08550, lng: -102.35950 },
+      { nombre: "Poblado Morelos", lat: 19.07200, lng: -102.36500 }
     ];
 
     let mapaWebInstance = null;
     let markerWebInstance = null;
-    let fotoBlobWeb = null;
+    let fotoWatermarkBlob = null;
 
-    // Inicializar mapa al cargar
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Poblar colonias
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Poblar selector de colonias
       const sel = document.getElementById('web-colonia');
       if (sel) {
-        COLONIAS_APATZINGAN.forEach(c => {
+        COLONIAS_APATZINGAN.forEach(col => {
           const opt = document.createElement('option');
-          opt.value = c.nombre;
-          opt.textContent = c.nombre;
+          opt.value = col.nombre;
+          opt.textContent = col.nombre;
           sel.appendChild(opt);
         });
       }
 
-      // 2. Restaurar vecino guardado
-      const nomG = localStorage.getItem('hm_vecino_nombre') || '';
-      const telG = localStorage.getItem('hm_vecino_telefono') || '';
-      if (nomG) document.getElementById('web-nombre').value = nomG;
-      if (telG) document.getElementById('web-telefono').value = telG;
+      // 2. Restaurar datos persistidos del vecino si existen
+      const nom = localStorage.getItem('hm_vecino_web_nombre');
+      const tel = localStorage.getItem('hm_vecino_web_telefono');
+      const colG = localStorage.getItem('hm_vecino_web_colonia');
+      if (nom && document.getElementById('web-nombre')) document.getElementById('web-nombre').value = nom;
+      if (tel && document.getElementById('web-telefono')) document.getElementById('web-telefono').value = tel;
+      if (colG && sel) sel.value = colG;
 
-      // 3. Inicializar Leaflet
+      // 3. Mini-Mapa con Leaflet
       initMapaWeb(19.08830, -102.35640);
 
       // 4. Intentar obtener GPS suavemente
@@ -1107,125 +1918,185 @@
       reader.onload = (e) => {
         const img = new Image();
         img.onload = () => {
-          const canvas = document.getElementById('canvas-watermark-web');
-          const MAX_WIDTH = 1200;
-          let w = img.width;
-          let h = img.height;
-          if (w > MAX_WIDTH) { h = Math.round(h * (MAX_WIDTH / w)); w = MAX_WIDTH; }
-
-          canvas.width = w;
-          canvas.height = h;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, w, h);
-
-          const coords = document.getElementById('web-coords').value || '19.0883, -102.3564';
-          const col = document.getElementById('web-colonia').value || 'Apatzingán';
-          const fechaStr = new Date().toLocaleString('es-MX', {
-            day: '2-digit', month: 'short', year: 'numeric',
-            hour: '2-digit', minute: '2-digit'
-          });
-
-          // Estampa forense
-          const bH = Math.max(80, Math.round(h * 0.14));
-          const bY = h - bH;
-          ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
-          ctx.fillRect(0, bY, w, bH);
-          ctx.fillStyle = '#10B981';
-          ctx.fillRect(0, bY, w, 4);
-
-          ctx.font = `bold ${Math.round(bH * 0.22)}px sans-serif`;
-          ctx.fillStyle = '#FFFFFF';
-          ctx.fillText('PORTAL VECINAL APATZINGÁN · REPORTE CIUDADANO', 20, bY + (bH * 0.35));
-
-          ctx.font = `bold ${Math.round(bH * 0.18)}px monospace`;
-          ctx.fillStyle = '#FBBF24';
-          ctx.fillText(`📍 GPS: ${coords} | Col. ${col}`, 20, bY + (bH * 0.65));
-
-          ctx.font = `${Math.round(bH * 0.16)}px sans-serif`;
-          ctx.fillStyle = '#94A3B8';
-          ctx.fillText(`🗓️ ${fechaStr} | EVIDENCIA FORENSE OFICIAL`, 20, bY + (bH * 0.88));
-
-          canvas.toBlob((blob) => {
-            fotoBlobWeb = blob;
-            const prev = document.getElementById('preview-foto-img');
-            const cont = document.getElementById('preview-foto-container');
-            if (prev) prev.src = canvas.toDataURL('image/jpeg', 0.85);
-            if (cont) cont.style.display = 'block';
-            if (lbl) lbl.innerText = '✅ Foto estampada lista para enviar';
-          }, 'image/jpeg', 0.85);
+          estamparFotoForenseWeb(img);
         };
         img.src = e.target.result;
       };
       reader.readAsDataURL(file);
     }
 
+    function estamparFotoForenseWeb(img) {
+      const canvas = document.getElementById('canvas-watermark-web');
+      const ctx = canvas.getContext('2d');
+
+      const maxDim = 1280;
+      let w = img.width;
+      let h = img.height;
+      if (w > maxDim || h > maxDim) {
+        if (w > h) {
+          h = Math.round((h * maxDim) / w);
+          w = maxDim;
+        } else {
+          w = Math.round((w * maxDim) / h);
+          h = maxDim;
+        }
+      }
+
+      canvas.width = w;
+      canvas.height = h;
+      ctx.drawImage(img, 0, 0, w, h);
+
+      // Franja forense institucional inferior
+      const bannerH = Math.max(54, Math.round(h * 0.12));
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+      ctx.fillRect(0, h - bannerH, w, bannerH);
+
+      // Línea divisoria verde
+      ctx.fillStyle = '#059669';
+      ctx.fillRect(0, h - bannerH, w, 4);
+
+      // Datos a estampar
+      const coords = document.getElementById('web-coords')?.value || '19.0883, -102.3564';
+      const col = document.getElementById('web-colonia')?.value || 'Apatzingán';
+      const dir = document.getElementById('web-direccion')?.value || 'Ubicación Vecinal';
+      const ahora = new Date();
+      const fechaStr = ahora.toLocaleDateString('es-MX', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+      const horaStr = ahora.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `bold ${Math.max(12, Math.round(bannerH * 0.28))}px sans-serif`;
+      ctx.fillText(`📍 GPS: ${coords} · COL. ${col.toUpperCase()}`, 16, h - bannerH + Math.round(bannerH * 0.42));
+
+      ctx.fillStyle = '#34d399';
+      ctx.font = `bold ${Math.max(10, Math.round(bannerH * 0.22))}px monospace`;
+      ctx.fillText(`📅 ${fechaStr} ${horaStr} · EVIDENCIA FORENSE SATELITAL`, 16, h - bannerH + Math.round(bannerH * 0.82));
+
+      canvas.toBlob((blob) => {
+        fotoWatermarkBlob = blob;
+        const previewImg = document.getElementById('preview-foto-img');
+        const previewContainer = document.getElementById('preview-foto-container');
+        if (previewImg && previewContainer) {
+          previewImg.src = URL.createObjectURL(blob);
+          previewContainer.style.display = 'block';
+        }
+        const lbl = document.getElementById('lbl-foto-status');
+        if (lbl) lbl.innerText = '✓ Foto certificada con éxito';
+      }, 'image/jpeg', 0.85);
+    }
+
     function eliminarFotoWeb() {
-      fotoBlobWeb = null;
+      fotoWatermarkBlob = null;
       document.getElementById('web-input-foto').value = '';
-      document.getElementById('preview-foto-container').style.display = 'none';
-      document.getElementById('lbl-foto-status').innerText = 'Toca aquí para tomar foto o elegir de tu galería';
+      const previewContainer = document.getElementById('preview-foto-container');
+      if (previewContainer) previewContainer.style.display = 'none';
+      const lbl = document.getElementById('lbl-foto-status');
+      if (lbl) lbl.innerText = 'Toca aquí para tomar foto o elegir de tu galería';
     }
 
     async function enviarReporteWeb() {
-      const col = (document.getElementById('web-colonia').value || '').trim();
-      const dir = (document.getElementById('web-direccion').value || '').trim();
-      const coords = (document.getElementById('web-coords').value || '').trim();
-      const tipo = document.getElementById('web-tipo-punto').value;
-      const detalle = (document.getElementById('web-detalle').value || '').trim();
-      const nombre = (document.getElementById('web-nombre').value || '').trim();
-      const tel = (document.getElementById('web-telefono').value || '').replace(/\D/g, '').trim();
-      const deseaUnirse = document.getElementById('web-chk-unirse').checked;
+      const nombre = (document.getElementById('web-nombre')?.value || '').trim();
+      const telefono = (document.getElementById('web-telefono')?.value || '').trim();
+      const colonia = (document.getElementById('web-colonia')?.value || '').trim();
+      const direccion = (document.getElementById('web-direccion')?.value || '').trim();
+      const tipoPunto = (document.getElementById('web-tipo-punto')?.value || 'Basurero Clandestino').trim();
+      const coords = (document.getElementById('web-coords')?.value || '19.0883, -102.3564').trim();
+      const detalle = (document.getElementById('web-detalle')?.value || '').trim();
+      const unirse = document.getElementById('web-chk-unirse')?.checked !== false;
 
-      if (!col) { alert('Por favor selecciona tu colonia.'); return; }
-      if (!dir) { alert('Ingresa la calle o referencia exacta.'); return; }
-      if (!nombre) { alert('Ingresa tu nombre.'); return; }
-      if (!tel || tel.length < 10) { alert('Ingresa tu WhatsApp a 10 dígitos.'); return; }
+      if (!nombre) { alert('Ingresa tu nombre completo.'); return; }
+      if (!telefono || telefono.length < 10) { alert('Ingresa tu número de WhatsApp a 10 dígitos.'); return; }
+      if (!colonia) { alert('Selecciona tu colonia de Apatzingán.'); return; }
+      if (!direccion) { alert('Ingresa la calle o referencia exacta del problema.'); return; }
+
+      // Persistir datos para próximos reportes
+      localStorage.setItem('hm_vecino_web_nombre', nombre);
+      localStorage.setItem('hm_vecino_web_telefono', telefono);
+      localStorage.setItem('hm_vecino_web_colonia', colonia);
 
       const btn = document.getElementById('btn-enviar-web');
       btn.disabled = true;
-      btn.innerHTML = '<span>⏳</span> Transmitiendo reporte al satélite...';
+      btn.innerHTML = '<span>⏳</span> TRANSMITIENDO REPORTE SATELITAL...';
 
       const folio = 'HM-LIMPIA-' + Math.floor(1000 + Math.random() * 9000);
-      const gmapsUrl = `https://maps.google.com/?q=${coords.replace(/\s+/g, '')}`;
+      const gmapsLink = `https://maps.google.com/?q=${coords.replace(/\s+/g, '')}`;
 
-      // Persistir datos
-      localStorage.setItem('hm_vecino_nombre', nombre);
-      localStorage.setItem('hm_vecino_telefono', tel);
+      // Configuración Telegram BotFather
+      const TELEGRAM_TOKEN = '9241438163:AAHkZSJKJqJQLNlQMKM19630iKFuuN_oy7w';
+      const CHAT_ID = '-5203485448';
 
-      // Transmisión directa a Telegram (Zero-Disk)
-      const token = '9241438163:AAHkZSJKJqJQLNlQMKM19630iKFuuN_oy7w';
-      const chatId = '-5203485448';
-      const mensajeTexto = `🧹 [PORTAL VECINAL WEB · REPORTE CIUDADANO]\nFolio: ${folio}\n📍 Colonia: ${col}\n📌 Tipo: ${tipo}\n📝 Ubicación: ${dir}\n🗺️ Coordenadas: ${coords}\n🚗 Google Maps: ${gmapsUrl}\n👤 Vecino: ${nombre}\n📱 WhatsApp: https://wa.me/52${tel}\n💬 Detalle: ${detalle || 'Sin detalle adicional'}\n🤝 Desea unirse: ${deseaUnirse ? 'SÍ' : 'Solo reporte'}\n🌐 Origen: Portal Web Vecinos`;
+      const textoReporte = `🧹 [LIMPIEMOS LA CIUDAD · REPORTE VECINAL WEB]\n` +
+        `Folio Oficial: ${folio}\n` +
+        `👤 Vecino: ${nombre}\n` +
+        `📱 WhatsApp: ${telefono}\n` +
+        `📍 Colonia: ${colonia}\n` +
+        `📌 Problemática: ${tipoPunto}\n` +
+        `📝 Dirección: ${direccion}\n` +
+        `🗺️ GPS: ${coords}\n` +
+        `🚗 Ver en Maps: ${gmapsLink}\n` +
+        `💬 Detalle: ${detalle || 'Sin detalle adicional'}\n` +
+        `🤝 Se suma a brigada: ${unirse ? 'SÍ (Traerá escoba y apoyo)' : 'Solo reporte'}\n` +
+        `📅 Fecha y Hora: ${new Date().toLocaleString('es-MX')}`;
 
       try {
-        if (fotoBlobWeb) {
-          const fd = new FormData();
-          fd.append('chat_id', chatId);
-          fd.append('photo', fotoBlobWeb, `reporte_${folio}.jpg`);
-          fd.append('caption', mensajeTexto);
-          await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, { method: 'POST', body: fd });
+        if (fotoWatermarkBlob) {
+          const formData = new FormData();
+          formData.append('chat_id', CHAT_ID);
+          formData.append('caption', textoReporte.substring(0, 1024));
+          formData.append('photo', fotoWatermarkBlob, `reporte_${folio}.jpg`);
+          await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`, {
+            method: 'POST',
+            body: formData
+          });
         } else {
-          await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: chatId, text: mensajeTexto })
+            body: JSON.stringify({ chat_id: CHAT_ID, text: textoReporte })
           });
         }
       } catch (err) {
-        console.warn('Error enviando a Telegram:', err);
+        console.warn('Envío a Telegram en segundo plano finalizado:', err);
       }
 
+      // Enviar copia al Cerebro Host si está en LAN
+      try {
+        fetch('http://localhost:8080/api/sync/ingestar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tipo: 'REPORTE_LIMPIEZA',
+            datos: {
+              id: folio,
+              folio: folio,
+              nombre: nombre,
+              telefono: telefono,
+              colonia: colonia,
+              direccion: direccion,
+              problema: tipoPunto,
+              coordenadas: coords,
+              maps_url: gmapsLink,
+              detalle: detalle,
+              desea_apoyar_brigada: unirse,
+              fecha_hora: new Date().toISOString()
+            }
+          })
+        }).catch(() => {});
+      } catch (e) {}
+
       // Mostrar confirmación
+      document.getElementById('form-vecino-web').style.display = 'none';
+      const panel = document.getElementById('panel-confirmacion-web');
       document.getElementById('lbl-folio-resultado').innerText = folio;
-      const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`¡Hola vecinos de ${col}! Acabo de levantar el reporte oficial del basurero/problema en nuestra calle (Folio: ${folio}). Los invito a reportar también para que acudan las cuadrillas con carretillas y camiones de aseo: https://coloapp.github.io/crm-campo-privacy/vecinos.html`)}`;
-      document.getElementById('btn-share-whatsapp-web').href = shareUrl;
-      document.getElementById('panel-confirmacion-web').style.display = 'block';
+      panel.style.display = 'block';
+
+      // Enlace para WhatsApp
+      const txtShare = `vecinos de ${colonia}, acabo de reportar un punto crítico en nuestra calle con el folio oficial *${folio}* en el Portal Vecinal de Apatzingán.\n\nÚnanse reportando aquí para que el Ayuntamiento priorice nuestra colonia:\n${window.location.origin}${window.location.pathname}`;
+      document.getElementById('btn-share-whatsapp-web').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(txtShare)}`;
 
       btn.disabled = false;
-      btn.innerHTML = '<span>✓</span> REPORTE ENVIADO (LEVENTAR OTRO)';
-      document.getElementById('panel-confirmacion-web').scrollIntoView({ behavior: 'smooth' });
+      btn.innerHTML = '<span>🧹</span> ENVIAR REPORTE OFICIAL AL SATÉLITE';
+      panel.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
-
 </body>
 </html>
