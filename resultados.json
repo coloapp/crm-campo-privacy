@@ -1,0 +1,55 @@
+{
+  "id": "sondeo-alcaldia-apatzingan-2027",
+  "titulo": "Sondeo Ciudadano: Preferencias Electorales en Apatzingán 2027",
+  "descripcion": "Participa en el sondeo ciudadano de opinión pública. Tu voto está protegido con criptografía avanzada, verificación de dispositivo único y auditoría anti-bots en tiempo real.",
+  "fecha_limite": "2026-12-31T23:59:59",
+  "candidatos": [
+    {
+      "id": "cand-hugo-molina",
+      "nombre": "Hugo Molina",
+      "partido": "MORENA / Coalición Sigamos Haciendo Historia",
+      "color": "#7B1113",
+      "foto": "assets/img/icon-512.png",
+      "bio": "",
+      "votos_favor": 143,
+      "votos_contra": 18
+    },
+    {
+      "id": "cand-alianza-pri-pan",
+      "nombre": "Lic. Fernando González",
+      "partido": "Alianza PAN - PRI - PRD",
+      "color": "#1d4ed8",
+      "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      "bio": "",
+      "votos_favor": 47,
+      "votos_contra": 89
+    },
+    {
+      "id": "cand-movimiento-ciudadano",
+      "nombre": "Ing. Roberto Mendoza",
+      "partido": "Movimiento Ciudadano",
+      "color": "#ea580c",
+      "foto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
+      "bio": "",
+      "votos_favor": 31,
+      "votos_contra": 54
+    },
+    {
+      "id": "cand-independiente",
+      "nombre": "Mtro. Salvador Pantoja",
+      "partido": "Candidatura Independiente Ciudadana",
+      "color": "#059669",
+      "foto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+      "bio": "",
+      "votos_favor": 28,
+      "votos_contra": 22
+    }
+  ],
+  "metricas_seguridad": {
+    "total_votos_validos": 432,
+    "intentos_bloqueados": 26,
+    "tasa_integridad": "99.9%"
+  },
+  "ultima_actualizacion": "2026-11-15T20:28:43.058Z",
+  "sincronizado_por": "Cerebro Central Territorial Hugo Molina (Apatzingán)"
+}

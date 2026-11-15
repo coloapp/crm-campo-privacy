@@ -665,6 +665,7 @@
     async function cargarEncuestaEnVivo(forzarRefresco = false) {
       let data = null;
 
+      // Intentar API local si estamos en la misma red LAN que el Cerebro
       if (API_BASE) {
         try {
           const res = await fetch(API_BASE + '/api/encuestas/activa', { cache: forzarRefresco ? 'no-cache' : 'default' });
@@ -672,7 +673,19 @@
             data = await res.json();
           }
         } catch (e) {
-          console.warn('Backend local no disponible, usando almacenamiento persistente:', e.message);
+          console.warn('Backend local no disponible:', e.message);
+        }
+      }
+
+      // Si estamos en la nube pública de GitHub Pages (ciudadanos en 4G/Wi-Fi), consultar resultados.json con cache-busting
+      if (!data || !data.candidatos) {
+        try {
+          const resPub = await fetch('resultados.json?t=' + Date.now(), { cache: 'no-store' });
+          if (resPub.ok) {
+            data = await resPub.json();
+          }
+        } catch (ePub) {
+          console.warn('Repositorio público sin resultados.json aún:', ePub.message);
         }
       }
 
@@ -1041,9 +1054,20 @@
       setInterval(tick, 1000);
     }
 
-    // Inicializar al cargar el DOM
+    // Inicializar al cargar el DOM y activar auto-refresco en vivo
     window.addEventListener('DOMContentLoaded', () => {
       cargarEncuestaEnVivo(false);
+
+      // Auto-refresco en segundo plano cada 15 segundos para recibir votos de otros ciudadanos en vivo
+      setInterval(() => {
+        const modalAuditoria = document.getElementById('modal-recibo-auditoria');
+        const modalPow = document.getElementById('modal-pow-loader');
+        const ocupado = (modalAuditoria && !modalAuditoria.classList.contains('hidden')) ||
+                        (modalPow && !modalPow.classList.contains('hidden'));
+        if (!ocupado) {
+          cargarEncuestaEnVivo(true);
+        }
+      }, 15000);
     });
   </script>
 </body>
