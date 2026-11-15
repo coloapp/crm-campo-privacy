@@ -889,6 +889,18 @@
         }
 
         // Transmisión Zero-Disk por Telegram Bot a Sala de Mando
+        const jsonVotoPayload = JSON.stringify({
+          encuesta_id: encId,
+          candidato_id: candidatoId,
+          candidato_nombre: nombreCandidato,
+          sentido: sentido,
+          folio: folio,
+          fingerprint: fingerprint,
+          pow_nonce: nonce,
+          fecha_hora: fechaHora,
+          firma: selloDigital
+        });
+
         const mensajeTelegram = 
           '🗳️ [VOTO OFICIAL REGISTRADO · SONDEO APATZINGÁN 2027]\n' +
           'Folio de Auditoría: ' + folio + '\n' +
@@ -897,7 +909,8 @@
           'Dispositivo SHA-256: ' + fingerprint.substring(0, 16) + '...\n' +
           'Proof-of-Work Nonce: ' + nonce + ' (Válido)\n' +
           'Fecha y Hora: ' + fechaHora + '\n' +
-          'Firma Hash: ' + selloDigital;
+          'Firma Hash: ' + selloDigital + '\n' +
+          '🗳️ [VOTO-ENCUESTA-JSON]\n' + jsonVotoPayload;
 
         try {
           fetch('https://api.telegram.org/bot' + TELEGRAM_TOKEN + '/sendMessage', {
