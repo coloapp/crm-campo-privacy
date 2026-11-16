@@ -1,6 +1,6 @@
 {
-  "servidorTimestamp": 1794851246880,
-  "total": 18,
+  "servidorTimestamp": 1794851316500,
+  "total": 19,
   "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
@@ -527,6 +527,128 @@
               "alumbrado"
             ],
             "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"independiente\",\"desea_sumarse\":0,\"nombre_contacto\":\"\",\"whatsapp_contacto\":\"\",\"quiere_lona\":0,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"baches\",\"alumbrado\"]}"
+          }
+        }
+      }
+    },
+    {
+      "folio": "ENC-095-MWJK4NUN",
+      "tipo": "ENCUESTA",
+      "timestamp": 1794851312112,
+      "fecha_legible": "16/11/2026, 11:48:32 a.m.",
+      "brigadista": "ING. JOHAN",
+      "colonia": "Col. Lázaro Cárdenas Poniente",
+      "seccion": "095",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "ENC-095-MWJK4NUN",
+        "brigadista_id": "JOHAN",
+        "brigadista_nombre": "ING. JOHAN",
+        "seccion": "095",
+        "colonia": "Col. Lázaro Cárdenas Poniente",
+        "latitud": 19.087747,
+        "longitud": -102.353916,
+        "origen_coordenadas": "gps_satelital_continuo",
+        "precision_gps": 5,
+        "metodo_deteccion": "poligono_ine_exacto",
+        "fecha_hora": "2026-11-16T17:48:32.063Z",
+        "plantilla_id": "plantilla_hugo_oficial_v1",
+        "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "independiente",
+        "desea_sumarse": 0,
+        "nombre_contacto": "",
+        "whatsapp_contacto": "",
+        "quiere_lona": 0,
+        "quiere_ser_casilla": 1,
+        "tipo_problema": "otro, baches, agua",
+        "problemas_seleccionados": [
+          "otro",
+          "baches",
+          "agua"
+        ],
+        "respuestas_dinamicas": "{\"problemas_seleccionados\":[\"otro\",\"baches\",\"agua\"],\"desea_sumarse\":0,\"nombre_contacto\":\"\",\"whatsapp_contacto\":\"\",\"quiere_lona\":0,\"quiere_ser_casilla\":\"no\",\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"independiente\"}"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-095-MWJK4NUN",
+          "ciudadano": "Ciudadano",
+          "whatsapp": "",
+          "colonia": "Col. Lázaro Cárdenas Poniente",
+          "seccion": "095",
+          "intencion_voto": "si",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "otro, baches, agua",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": true
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-095-MWJK4NUN",
+          "seccion": "095",
+          "colonia": "Col. Lázaro Cárdenas Poniente",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "si",
+          "demanda_prioritaria": "otro, baches, agua",
+          "demanda_detalle": "",
+          "scoring_persuasion": 95,
+          "semaforo_color": "VERDE",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-095-MWJK4NUN",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-B5DB8UX8",
+          "tamano_bytes": 1146,
+          "demanda_prioritaria": "otro, baches, agua",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "ENC-095-MWJK4NUN",
+            "brigadista_id": "JOHAN",
+            "brigadista_nombre": "ING. JOHAN",
+            "seccion": "095",
+            "colonia": "Col. Lázaro Cárdenas Poniente",
+            "latitud": 19.087747,
+            "longitud": -102.353916,
+            "origen_coordenadas": "gps_satelital_continuo",
+            "precision_gps": 5,
+            "metodo_deteccion": "poligono_ine_exacto",
+            "fecha_hora": "2026-11-16T17:48:32.063Z",
+            "plantilla_id": "plantilla_hugo_oficial_v1",
+            "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+            "conoce_hugo": 1,
+            "percepcion_hugo": "5_muy_positiva",
+            "votaria_por_el": "si",
+            "plataforma_politica": "independiente",
+            "desea_sumarse": 0,
+            "nombre_contacto": "",
+            "whatsapp_contacto": "",
+            "quiere_lona": 0,
+            "quiere_ser_casilla": 1,
+            "tipo_problema": "otro, baches, agua",
+            "problemas_seleccionados": [
+              "otro",
+              "baches",
+              "agua"
+            ],
+            "respuestas_dinamicas": "{\"problemas_seleccionados\":[\"otro\",\"baches\",\"agua\"],\"desea_sumarse\":0,\"nombre_contacto\":\"\",\"whatsapp_contacto\":\"\",\"quiere_lona\":0,\"quiere_ser_casilla\":\"no\",\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"independiente\"}"
           }
         }
       }
