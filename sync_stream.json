@@ -1,95 +1,341 @@
 {
-  "servidorTimestamp": 1794793157367,
-  "total": 1,
-  "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
+  "servidorTimestamp": 1794795224441,
+  "total": 16,
   "registros": [
     {
-      "folio": "ENC-058-TEST9999",
+      "syncId": "SYNC-TEST-1794728262220",
+      "timestamp": 1794728262220,
       "tipo": "ENCUESTA",
-      "timestamp": 1794793156425,
-      "fecha_legible": "15/11/2026, 7:39:16 p.m.",
-      "brigadista": "Brigadista Campo",
-      "colonia": "Babilonia",
-      "seccion": "058",
-      "coordenadas": "19.0885,-102.3552",
-      "maps_url": "https://maps.google.com/?q=19.0885,-102.3552",
       "datos": {
-        "id": "ENC-058-TEST9999",
-        "seccion": "058",
-        "colonia": "Babilonia",
-        "nombre_contacto": "María Elena Ramos",
-        "whatsapp_contacto": "4539876543",
+        "id": "TEST-ENC-6243",
+        "folio": "TEST-ENC-6243",
+        "brigadista_id": "BRIG-01",
+        "brigadista_nombre": "Brigadista de Prueba",
+        "usuario_id": "ANDRES-01",
+        "fecha_hora": "2026-11-15T07:37:42.220Z",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
         "votaria_por_el": "si",
-        "conoce_candidato": "Sí",
-        "calificacion_trabajo": "Excelente",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "quiere_ser_casilla": 1,
+        "nombre_contacto": "Ing. Andrés Anuar (Prueba Enlace)",
+        "whatsapp_contacto": "4531234567",
+        "colonia_detectada": "Babilonia",
+        "seccion_electoral": "058",
+        "coordenadas_gps": {
+          "lat": 19.0885,
+          "lng": -102.3556
+        },
         "problemas_seleccionados": [
           "Alumbrado Público"
         ],
-        "desea_apoyar": true,
-        "lat": 19.0885,
-        "lng": -102.3552,
-        "coordenadas": "19.0885,-102.3552"
-      },
-      "copias": {
-        "hugo": {
-          "destinatario": "HUGO-01",
-          "rol": "candidato",
-          "titulo": "Resumen Político y Demanda Ciudadana",
-          "folio": "ENC-058-TEST9999",
-          "ciudadano": "María Elena Ramos",
-          "whatsapp": "4539876543",
-          "colonia": "Babilonia",
-          "seccion": "058",
-          "intencion_voto": "si",
-          "conoce_a_hugo": "Sí",
-          "calificacion": "Excelente",
-          "demanda_prioritaria": "Alumbrado Público",
-          "compromiso_apoyo": "Sí (Se suma a brigada)",
-          "simpatizante": true
-        },
-        "sergio": {
-          "destinatario": "SERGIO-01",
-          "rol": "estratega",
-          "titulo": "Inteligencia Territorial y Scoring Seccional",
-          "folio": "ENC-058-TEST9999",
-          "seccion": "058",
-          "colonia": "Babilonia",
-          "coordenadas": "19.0885,-102.3552",
+        "descripcion_problema": "Prueba de sincronización satelital y multi-nodo exitosa"
+      }
+    },
+    {
+      "syncId": "SYNC-TEST-1794729668805",
+      "timestamp": 1794729668805,
+      "tipo": "ENCUESTA",
+      "datos": {
+        "id": "TEST-ENC-2784",
+        "folio": "TEST-ENC-2784",
+        "brigadista_id": "BRIG-01",
+        "brigadista_nombre": "Brigadista de Prueba",
+        "usuario_id": "ANDRES-01",
+        "fecha_hora": "2026-11-15T08:01:08.805Z",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "quiere_ser_casilla": 1,
+        "nombre_contacto": "Ciudadano Simpatizante de Prueba",
+        "whatsapp_contacto": "4531234567",
+        "colonia_detectada": "Babilonia",
+        "seccion_electoral": "058",
+        "coordenadas_gps": {
           "lat": 19.0885,
-          "lng": -102.3552,
-          "maps_url": "https://maps.google.com/?q=19.0885,-102.3552",
-          "intencion_voto": "si",
-          "scoring_persuasion": 95,
-          "semaforo_color": "VERDE",
-          "tiempo_captura_segundos": 45
+          "lng": -102.3556
         },
-        "anuar": {
-          "destinatario": "ANDRES-01",
-          "rol": "admin_system",
-          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
-          "folio": "ENC-058-TEST9999",
-          "brigadista_id": "BRIG-DEFAULT",
-          "device_id": "DEV-UNK",
-          "hash_integridad": "SHA-ZFACQS0B",
-          "tamano_bytes": 347,
-          "registro_completo": {
-            "id": "ENC-058-TEST9999",
-            "seccion": "058",
-            "colonia": "Babilonia",
-            "nombre_contacto": "María Elena Ramos",
-            "whatsapp_contacto": "4539876543",
-            "votaria_por_el": "si",
-            "conoce_candidato": "Sí",
-            "calificacion_trabajo": "Excelente",
-            "problemas_seleccionados": [
-              "Alumbrado Público"
-            ],
-            "desea_apoyar": true,
-            "lat": 19.0885,
-            "lng": -102.3552,
-            "coordenadas": "19.0885,-102.3552"
-          }
-        }
+        "problemas_seleccionados": [
+          "Alumbrado Público"
+        ],
+        "descripcion_problema": "Lámpara fundida en esquina principal"
+      }
+    },
+    {
+      "syncId": "SYNC-1794731010794-2uu6",
+      "timestamp": 1794731010800,
+      "tipo": "REPORTE_LIMPIEZA",
+      "datos": {
+        "telegram_file_id": "AgACAgEAAx...TEST_ZERO_DISK_ID",
+        "id": "HM-LIMPIA-TEST-01",
+        "nombre": "Vecino Ejemplo Apatzingan",
+        "problema": "Basurero clandestino / Foco de infeccion",
+        "direccion": "Av. Corregidora esq. Vias FFCC",
+        "folio": "HM-LIMPIA-TEST-01",
+        "detalle": "Ramas secas, escombro y basura acumulada en esquina",
+        "coordenadas": "19.0885, -102.3556",
+        "desea_apoyar_brigada": true,
+        "telefono": "4531234567",
+        "colonia": "Babilonia",
+        "fecha_hora": "2026-11-15T02:23:27.9624356-06:00"
+      }
+    },
+    {
+      "syncId": "SYNC-1794731144270-cq6i",
+      "timestamp": 1794731144280,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHKL1C6",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Cerebro Territorial / Dashboard Estratégico",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T08:25:43.686Z",
+        "fecha_humana": "15 nov 2026, 2:25:43 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794732197790-qo0d",
+      "timestamp": 1794732197796,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHL7MFU",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Portal Vecino / Modo Ciudadano",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T08:43:17.466Z",
+        "fecha_humana": "15 nov 2026, 2:43:17 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794732213227-h3rv",
+      "timestamp": 1794732213227,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHL7YCY",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Portal Vecino / Modo Ciudadano",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T08:43:32.914Z",
+        "fecha_humana": "15 nov 2026, 2:43:32 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794732233961-qqtt",
+      "timestamp": 1794732233961,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHL8EB3",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Portal Vecino / Modo Ciudadano",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T08:43:53.583Z",
+        "fecha_humana": "15 nov 2026, 2:43:53 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794732346116-1d1k",
+      "timestamp": 1794732346116,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHLASW0",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Portal Vecino / Modo Ciudadano",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T08:45:45.792Z",
+        "fecha_humana": "15 nov 2026, 2:45:45 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794732384617-2y11",
+      "timestamp": 1794732384617,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHLBMLU",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Portal Vecino / Modo Ciudadano",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T08:46:24.306Z",
+        "fecha_humana": "15 nov 2026, 2:46:24 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794733225353-l7cq",
+      "timestamp": 1794733225354,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWHLTNB2",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Portal Vecino / Modo Ciudadano",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T09:00:25.022Z",
+        "fecha_humana": "15 nov 2026, 3:00:25 a.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794767785836-eqgi",
+      "timestamp": 1794767785844,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWI6EE86",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Cerebro Territorial / Dashboard Estratégico",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T18:36:25.350Z",
+        "fecha_humana": "15 nov 2026, 12:36:25 p.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794770031981-n98j",
+      "timestamp": 1794770031981,
+      "tipo": "ENCUESTA",
+      "datos": {
+        "id": "TEST-SYNC-BRIG-01-1794770031923",
+        "folio": "HM-TEST-9389",
+        "nombre_contacto": "Vecino Prueba Real (Apatzingán)",
+        "whatsapp_contacto": "4531239999",
+        "colonia_detectada": "Babilonia",
+        "seccion_electoral": "058",
+        "coordenadas": "19.0868, -102.3634",
+        "brigadista_nombre": "BRIG-01 (Juan Carlos Pérez)",
+        "usuario_id": "BRIG-01",
+        "votaria_por_el": "si",
+        "problemas_seleccionados": [
+          "Alumbrado Público y Pavimento"
+        ],
+        "fecha_hora": "2026-11-15T19:13:51.923Z"
+      }
+    },
+    {
+      "syncId": "SYNC-1794771156617-y1yd",
+      "timestamp": 1794771156617,
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "datos": {
+        "id": "INC-CAP-MWI8EN90",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Sergio Ávalos (Estratega)",
+        "usuario_id": "SERGIO-01",
+        "rol": "estratega",
+        "telefono": "453-200-0002",
+        "seccion_app": "Cerebro Territorial / Dashboard Estratégico",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-15T19:32:36.276Z",
+        "fecha_humana": "15 nov 2026, 1:32:36 p.m.",
+        "esDemo": false
+      }
+    },
+    {
+      "syncId": "SYNC-1794771437402-6s74",
+      "timestamp": 1794771437406,
+      "tipo": "ENCUESTA",
+      "datos": {
+        "id": "ENC-101-MWI8KNNJ",
+        "brigadista_id": "SERGIO-01",
+        "brigadista_nombre": "Ing. Sergio Ávalos (Estratega)",
+        "seccion": "101",
+        "colonia": "Col. Lomas del Valle",
+        "latitud": 19.08679,
+        "longitud": -102.363358,
+        "origen_coordenadas": "gps_satelital_continuo",
+        "precision_gps": 92,
+        "metodo_deteccion": "poligono_ine_exacto",
+        "fecha_hora": "2026-11-15T19:37:16.737Z",
+        "plantilla_id": "plantilla_hugo_oficial_v1",
+        "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "3_neutral",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "nombre_contacto": "interesado",
+        "whatsapp_contacto": "6617264534",
+        "quiere_lona": 1,
+        "quiere_ser_casilla": 1,
+        "tipo_problema": "alumbrado, baches, basura",
+        "problemas_seleccionados": [
+          "alumbrado",
+          "baches",
+          "basura"
+        ],
+        "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"3_neutral\",\"percepcion_candidato\":\"3_neutral\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"interesado\",\"whatsapp_contacto\":\"6617264534\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"si\",\"problemas_seleccionados\":[\"alumbrado\",\"baches\",\"basura\"]}"
+      }
+    },
+    {
+      "syncId": "SYNC-1794781352947-v3bh",
+      "timestamp": 1794781352953,
+      "tipo": "ENCUESTA",
+      "datos": {
+        "id": "GEO3D-D4P7HGT",
+        "brigadista_id": "BRIG-GEO-03",
+        "brigadista_nombre": "Brigadista Geoespacial 3D",
+        "seccion": "058",
+        "colonia": "Col. Babilonia",
+        "latitud": 19.0883,
+        "longitud": -102.3564,
+        "fecha_hora": "2026-11-15T22:22:32.880Z",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 0,
+        "nombre_contacto": "",
+        "whatsapp_contacto": "",
+        "quiere_ser_casilla": 0,
+        "problema": "alumbrado",
+        "descripcion": ""
+      }
+    },
+    {
+      "syncId": "SYNC-1794795224428-axsa",
+      "timestamp": 1794795224431,
+      "tipo": "ANCLAJE_DISPOSITIVO",
+      "datos": {
+        "usuario_id": "ANDRES-01",
+        "nombre": "Ing. Andrés Anuar (Admin System)",
+        "firma_hardware": "HM-HW-W43686-BD0TY2",
+        "fecha": "2026-11-16T02:13:43.951Z"
       }
     }
   ]
