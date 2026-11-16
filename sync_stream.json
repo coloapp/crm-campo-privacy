@@ -1,5 +1,96 @@
 {
-  "servidorTimestamp": 1794785881600,
-  "total": 0,
-  "registros": []
+  "servidorTimestamp": 1794793157367,
+  "total": 1,
+  "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
+  "registros": [
+    {
+      "folio": "ENC-058-TEST9999",
+      "tipo": "ENCUESTA",
+      "timestamp": 1794793156425,
+      "fecha_legible": "15/11/2026, 7:39:16 p.m.",
+      "brigadista": "Brigadista Campo",
+      "colonia": "Babilonia",
+      "seccion": "058",
+      "coordenadas": "19.0885,-102.3552",
+      "maps_url": "https://maps.google.com/?q=19.0885,-102.3552",
+      "datos": {
+        "id": "ENC-058-TEST9999",
+        "seccion": "058",
+        "colonia": "Babilonia",
+        "nombre_contacto": "María Elena Ramos",
+        "whatsapp_contacto": "4539876543",
+        "votaria_por_el": "si",
+        "conoce_candidato": "Sí",
+        "calificacion_trabajo": "Excelente",
+        "problemas_seleccionados": [
+          "Alumbrado Público"
+        ],
+        "desea_apoyar": true,
+        "lat": 19.0885,
+        "lng": -102.3552,
+        "coordenadas": "19.0885,-102.3552"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-058-TEST9999",
+          "ciudadano": "María Elena Ramos",
+          "whatsapp": "4539876543",
+          "colonia": "Babilonia",
+          "seccion": "058",
+          "intencion_voto": "si",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Excelente",
+          "demanda_prioritaria": "Alumbrado Público",
+          "compromiso_apoyo": "Sí (Se suma a brigada)",
+          "simpatizante": true
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-058-TEST9999",
+          "seccion": "058",
+          "colonia": "Babilonia",
+          "coordenadas": "19.0885,-102.3552",
+          "lat": 19.0885,
+          "lng": -102.3552,
+          "maps_url": "https://maps.google.com/?q=19.0885,-102.3552",
+          "intencion_voto": "si",
+          "scoring_persuasion": 95,
+          "semaforo_color": "VERDE",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-058-TEST9999",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-ZFACQS0B",
+          "tamano_bytes": 347,
+          "registro_completo": {
+            "id": "ENC-058-TEST9999",
+            "seccion": "058",
+            "colonia": "Babilonia",
+            "nombre_contacto": "María Elena Ramos",
+            "whatsapp_contacto": "4539876543",
+            "votaria_por_el": "si",
+            "conoce_candidato": "Sí",
+            "calificacion_trabajo": "Excelente",
+            "problemas_seleccionados": [
+              "Alumbrado Público"
+            ],
+            "desea_apoyar": true,
+            "lat": 19.0885,
+            "lng": -102.3552,
+            "coordenadas": "19.0885,-102.3552"
+          }
+        }
+      }
+    }
+  ]
 }
