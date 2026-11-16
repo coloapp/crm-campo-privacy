@@ -1,6 +1,7 @@
 {
-  "servidorTimestamp": 1794795224441,
-  "total": 16,
+  "servidorTimestamp": 1794849162346,
+  "total": 17,
+  "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
       "syncId": "SYNC-TEST-1794728262220",
@@ -336,6 +337,78 @@
         "nombre": "Ing. Andrés Anuar (Admin System)",
         "firma_hardware": "HM-HW-W43686-BD0TY2",
         "fecha": "2026-11-16T02:13:43.951Z"
+      }
+    },
+    {
+      "folio": "ENC-283-0E3E",
+      "tipo": "ANCLAJE_DISPOSITIVO",
+      "timestamp": 1794849155507,
+      "fecha_legible": "16/11/2026, 11:12:35 a.m.",
+      "brigadista": "ANDRES-01",
+      "colonia": "Apatzingán",
+      "seccion": "058",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "usuario_id": "ANDRES-01",
+        "nombre": "Ing. Andrés Anuar (Admin System)",
+        "firma_hardware": "HM-HW-KBRYC9-T7NWT6",
+        "fecha": "2026-11-16T17:12:35.504Z"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-283-0E3E",
+          "ciudadano": "Ing. Andrés Anuar (Admin System)",
+          "whatsapp": "",
+          "colonia": "Apatzingán",
+          "seccion": "058",
+          "intencion_voto": "indeciso",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": false
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-283-0E3E",
+          "seccion": "058",
+          "colonia": "Apatzingán",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "indeciso",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "scoring_persuasion": 60,
+          "semaforo_color": "AMARILLO",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-283-0E3E",
+          "brigadista_id": "ANDRES-01",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-0YHX6HE5",
+          "tamano_bytes": 144,
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "usuario_id": "ANDRES-01",
+            "nombre": "Ing. Andrés Anuar (Admin System)",
+            "firma_hardware": "HM-HW-KBRYC9-T7NWT6",
+            "fecha": "2026-11-16T17:12:35.504Z"
+          }
+        }
       }
     }
   ]
