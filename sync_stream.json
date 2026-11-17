@@ -1,6 +1,6 @@
 {
-  "servidorTimestamp": 1794876320029,
-  "total": 21,
+  "servidorTimestamp": 1794880011070,
+  "total": 22,
   "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
@@ -885,6 +885,128 @@
               "agua"
             ],
             "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Maria del socorro valencia Sanchez\",\"whatsapp_contacto\":\"4531211005\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"agua\"]}"
+          }
+        }
+      }
+    },
+    {
+      "folio": "ENC-090-MWK17O2L",
+      "tipo": "ENCUESTA",
+      "timestamp": 1794880005848,
+      "fecha_legible": "16/11/2026, 7:46:45 p.m.",
+      "brigadista": "PEDRO VALENCIA",
+      "colonia": "Col. Campestre",
+      "seccion": "090",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "ENC-090-MWK17O2L",
+        "brigadista_id": "BRIG-PEDRO",
+        "brigadista_nombre": "PEDRO VALENCIA",
+        "seccion": "090",
+        "colonia": "Col. Campestre",
+        "latitud": 19.0883,
+        "longitud": -102.3564,
+        "origen_coordenadas": "estimacion_apatzingan",
+        "precision_gps": 12,
+        "metodo_deteccion": "poligono_ine_exacto",
+        "fecha_hora": "2026-11-17T01:46:45.790Z",
+        "plantilla_id": "plantilla_hugo_oficial_v1",
+        "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "nombre_contacto": "Juvenal colin mendoza",
+        "whatsapp_contacto": "4532813503",
+        "quiere_lona": 1,
+        "quiere_ser_casilla": 1,
+        "tipo_problema": "basura, drenaje, seguridad",
+        "problemas_seleccionados": [
+          "basura",
+          "drenaje",
+          "seguridad"
+        ],
+        "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Juvenal colin mendoza\",\"whatsapp_contacto\":\"4532813503\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"basura\",\"drenaje\",\"seguridad\"]}"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-090-MWK17O2L",
+          "ciudadano": "Juvenal colin mendoza",
+          "whatsapp": "4532813503",
+          "colonia": "Col. Campestre",
+          "seccion": "090",
+          "intencion_voto": "si",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "basura, drenaje, seguridad",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": true
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-090-MWK17O2L",
+          "seccion": "090",
+          "colonia": "Col. Campestre",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "si",
+          "demanda_prioritaria": "basura, drenaje, seguridad",
+          "demanda_detalle": "",
+          "scoring_persuasion": 95,
+          "semaforo_color": "VERDE",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-090-MWK17O2L",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-J2J0UQUK",
+          "tamano_bytes": 1208,
+          "demanda_prioritaria": "basura, drenaje, seguridad",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "ENC-090-MWK17O2L",
+            "brigadista_id": "BRIG-PEDRO",
+            "brigadista_nombre": "PEDRO VALENCIA",
+            "seccion": "090",
+            "colonia": "Col. Campestre",
+            "latitud": 19.0883,
+            "longitud": -102.3564,
+            "origen_coordenadas": "estimacion_apatzingan",
+            "precision_gps": 12,
+            "metodo_deteccion": "poligono_ine_exacto",
+            "fecha_hora": "2026-11-17T01:46:45.790Z",
+            "plantilla_id": "plantilla_hugo_oficial_v1",
+            "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+            "conoce_hugo": 1,
+            "percepcion_hugo": "5_muy_positiva",
+            "votaria_por_el": "si",
+            "plataforma_politica": "morena",
+            "desea_sumarse": 1,
+            "nombre_contacto": "Juvenal colin mendoza",
+            "whatsapp_contacto": "4532813503",
+            "quiere_lona": 1,
+            "quiere_ser_casilla": 1,
+            "tipo_problema": "basura, drenaje, seguridad",
+            "problemas_seleccionados": [
+              "basura",
+              "drenaje",
+              "seguridad"
+            ],
+            "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Juvenal colin mendoza\",\"whatsapp_contacto\":\"4532813503\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"basura\",\"drenaje\",\"seguridad\"]}"
           }
         }
       }
