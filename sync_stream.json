@@ -1,6 +1,6 @@
 {
-  "servidorTimestamp": 1794880108377,
-  "total": 23,
+  "servidorTimestamp": 1795043290458,
+  "total": 24,
   "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
@@ -1129,6 +1129,124 @@
               "seguridad"
             ],
             "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Leticia ambriz valdivia\",\"whatsapp_contacto\":\"4531281551\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"basura\",\"drenaje\",\"seguridad\"]}"
+          }
+        }
+      }
+    },
+    {
+      "folio": "ENC-090-MWMQFB8Y",
+      "tipo": "ENCUESTA",
+      "timestamp": 1795043285205,
+      "fecha_legible": "18/11/2026, 5:08:05 p.m.",
+      "brigadista": "YAJAIRA GARCIA",
+      "colonia": "Col. Campestre",
+      "seccion": "090",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "ENC-090-MWMQFB8Y",
+        "brigadista_id": "BRIG-YAJAIRA",
+        "brigadista_nombre": "YAJAIRA GARCIA",
+        "seccion": "090",
+        "colonia": "Col. Campestre",
+        "latitud": 19.0883,
+        "longitud": -102.3564,
+        "origen_coordenadas": "estimacion_apatzingan",
+        "precision_gps": 12,
+        "metodo_deteccion": "poligono_ine_exacto",
+        "fecha_hora": "2026-11-18T23:08:05.170Z",
+        "plantilla_id": "plantilla_hugo_oficial_v1",
+        "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "nombre_contacto": "Florentino rojas aguarde",
+        "whatsapp_contacto": "4535395792",
+        "quiere_lona": 1,
+        "quiere_ser_casilla": 1,
+        "tipo_problema": "otro",
+        "problemas_seleccionados": [
+          "otro"
+        ],
+        "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Florentino rojas aguarde\",\"whatsapp_contacto\":\"4535395792\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"otro\"]}"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-090-MWMQFB8Y",
+          "ciudadano": "Florentino rojas aguarde",
+          "whatsapp": "4535395792",
+          "colonia": "Col. Campestre",
+          "seccion": "090",
+          "intencion_voto": "si",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "otro",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": true
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-090-MWMQFB8Y",
+          "seccion": "090",
+          "colonia": "Col. Campestre",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "si",
+          "demanda_prioritaria": "otro",
+          "demanda_detalle": "",
+          "scoring_persuasion": 95,
+          "semaforo_color": "VERDE",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-090-MWMQFB8Y",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-6BXI8T9E",
+          "tamano_bytes": 1142,
+          "demanda_prioritaria": "otro",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "ENC-090-MWMQFB8Y",
+            "brigadista_id": "BRIG-YAJAIRA",
+            "brigadista_nombre": "YAJAIRA GARCIA",
+            "seccion": "090",
+            "colonia": "Col. Campestre",
+            "latitud": 19.0883,
+            "longitud": -102.3564,
+            "origen_coordenadas": "estimacion_apatzingan",
+            "precision_gps": 12,
+            "metodo_deteccion": "poligono_ine_exacto",
+            "fecha_hora": "2026-11-18T23:08:05.170Z",
+            "plantilla_id": "plantilla_hugo_oficial_v1",
+            "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+            "conoce_hugo": 1,
+            "percepcion_hugo": "5_muy_positiva",
+            "votaria_por_el": "si",
+            "plataforma_politica": "morena",
+            "desea_sumarse": 1,
+            "nombre_contacto": "Florentino rojas aguarde",
+            "whatsapp_contacto": "4535395792",
+            "quiere_lona": 1,
+            "quiere_ser_casilla": 1,
+            "tipo_problema": "otro",
+            "problemas_seleccionados": [
+              "otro"
+            ],
+            "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Florentino rojas aguarde\",\"whatsapp_contacto\":\"4535395792\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"otro\"]}"
           }
         }
       }
