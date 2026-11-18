@@ -1,6 +1,6 @@
 {
-  "servidorTimestamp": 1795043457368,
-  "total": 25,
+  "servidorTimestamp": 1795044594275,
+  "total": 26,
   "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
@@ -1365,6 +1365,124 @@
               "otro"
             ],
             "respuestas_dinamicas": "{\"problemas_seleccionados\":[\"otro\"],\"desea_sumarse\":1,\"nombre_contacto\":\"Yolanda morelos farfan\",\"whatsapp_contacto\":\"4535395792\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\"}"
+          }
+        }
+      }
+    },
+    {
+      "folio": "ENC-090-MWMR79BM",
+      "tipo": "ENCUESTA",
+      "timestamp": 1795044589086,
+      "fecha_legible": "18/11/2026, 5:29:49 p.m.",
+      "brigadista": "PEDRO VALENCIA",
+      "colonia": "Col. Campestre",
+      "seccion": "090",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "ENC-090-MWMR79BM",
+        "brigadista_id": "BRIG-PEDRO",
+        "brigadista_nombre": "PEDRO VALENCIA",
+        "seccion": "090",
+        "colonia": "Col. Campestre",
+        "latitud": 19.0883,
+        "longitud": -102.3564,
+        "origen_coordenadas": "estimacion_apatzingan",
+        "precision_gps": 12,
+        "metodo_deteccion": "poligono_ine_exacto",
+        "fecha_hora": "2026-11-18T23:29:49.042Z",
+        "plantilla_id": "plantilla_hugo_oficial_v1",
+        "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "nombre_contacto": "Laura Elizabeth colin amarilla",
+        "whatsapp_contacto": "4531507554",
+        "quiere_lona": 1,
+        "quiere_ser_casilla": 1,
+        "tipo_problema": "alumbrado",
+        "problemas_seleccionados": [
+          "alumbrado"
+        ],
+        "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Laura Elizabeth colin amarilla\",\"whatsapp_contacto\":\"4531507554\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"alumbrado\"]}"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-090-MWMR79BM",
+          "ciudadano": "Laura Elizabeth colin amarilla",
+          "whatsapp": "4531507554",
+          "colonia": "Col. Campestre",
+          "seccion": "090",
+          "intencion_voto": "si",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "alumbrado",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": true
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-090-MWMR79BM",
+          "seccion": "090",
+          "colonia": "Col. Campestre",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "si",
+          "demanda_prioritaria": "alumbrado",
+          "demanda_detalle": "",
+          "scoring_persuasion": 95,
+          "semaforo_color": "VERDE",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-090-MWMR79BM",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-PYSWM6Y4",
+          "tamano_bytes": 1167,
+          "demanda_prioritaria": "alumbrado",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "ENC-090-MWMR79BM",
+            "brigadista_id": "BRIG-PEDRO",
+            "brigadista_nombre": "PEDRO VALENCIA",
+            "seccion": "090",
+            "colonia": "Col. Campestre",
+            "latitud": 19.0883,
+            "longitud": -102.3564,
+            "origen_coordenadas": "estimacion_apatzingan",
+            "precision_gps": 12,
+            "metodo_deteccion": "poligono_ine_exacto",
+            "fecha_hora": "2026-11-18T23:29:49.042Z",
+            "plantilla_id": "plantilla_hugo_oficial_v1",
+            "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+            "conoce_hugo": 1,
+            "percepcion_hugo": "5_muy_positiva",
+            "votaria_por_el": "si",
+            "plataforma_politica": "morena",
+            "desea_sumarse": 1,
+            "nombre_contacto": "Laura Elizabeth colin amarilla",
+            "whatsapp_contacto": "4531507554",
+            "quiere_lona": 1,
+            "quiere_ser_casilla": 1,
+            "tipo_problema": "alumbrado",
+            "problemas_seleccionados": [
+              "alumbrado"
+            ],
+            "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Laura Elizabeth colin amarilla\",\"whatsapp_contacto\":\"4531507554\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"alumbrado\"]}"
           }
         }
       }
