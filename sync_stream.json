@@ -1,6 +1,6 @@
 {
-  "servidorTimestamp": 1795044594275,
-  "total": 26,
+  "servidorTimestamp": 1795044720181,
+  "total": 27,
   "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
@@ -1483,6 +1483,124 @@
               "alumbrado"
             ],
             "respuestas_dinamicas": "{\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\",\"desea_sumarse\":1,\"nombre_contacto\":\"Laura Elizabeth colin amarilla\",\"whatsapp_contacto\":\"4531507554\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"problemas_seleccionados\":[\"alumbrado\"]}"
+          }
+        }
+      }
+    },
+    {
+      "folio": "ENC-090-MWMR9YIY",
+      "tipo": "ENCUESTA",
+      "timestamp": 1795044715050,
+      "fecha_legible": "18/11/2026, 5:31:55 p.m.",
+      "brigadista": "PEDRO VALENCIA",
+      "colonia": "Col. Campestre",
+      "seccion": "090",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "ENC-090-MWMR9YIY",
+        "brigadista_id": "BRIG-PEDRO",
+        "brigadista_nombre": "PEDRO VALENCIA",
+        "seccion": "090",
+        "colonia": "Col. Campestre",
+        "latitud": 19.0883,
+        "longitud": -102.3564,
+        "origen_coordenadas": "estimacion_apatzingan",
+        "precision_gps": 12,
+        "metodo_deteccion": "poligono_ine_exacto",
+        "fecha_hora": "2026-11-18T23:31:55.018Z",
+        "plantilla_id": "plantilla_hugo_oficial_v1",
+        "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+        "conoce_hugo": 1,
+        "percepcion_hugo": "5_muy_positiva",
+        "votaria_por_el": "si",
+        "plataforma_politica": "morena",
+        "desea_sumarse": 1,
+        "nombre_contacto": "Valentin lechuga eduardo",
+        "whatsapp_contacto": "4535162949",
+        "quiere_lona": 1,
+        "quiere_ser_casilla": 1,
+        "tipo_problema": "alumbrado",
+        "problemas_seleccionados": [
+          "alumbrado"
+        ],
+        "respuestas_dinamicas": "{\"problemas_seleccionados\":[\"alumbrado\"],\"desea_sumarse\":1,\"nombre_contacto\":\"Valentin lechuga eduardo\",\"whatsapp_contacto\":\"4535162949\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\"}"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-090-MWMR9YIY",
+          "ciudadano": "Valentin lechuga eduardo",
+          "whatsapp": "4535162949",
+          "colonia": "Col. Campestre",
+          "seccion": "090",
+          "intencion_voto": "si",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "alumbrado",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": true
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-090-MWMR9YIY",
+          "seccion": "090",
+          "colonia": "Col. Campestre",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "si",
+          "demanda_prioritaria": "alumbrado",
+          "demanda_detalle": "",
+          "scoring_persuasion": 95,
+          "semaforo_color": "VERDE",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-090-MWMR9YIY",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-XYTHAKTF",
+          "tamano_bytes": 1155,
+          "demanda_prioritaria": "alumbrado",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "ENC-090-MWMR9YIY",
+            "brigadista_id": "BRIG-PEDRO",
+            "brigadista_nombre": "PEDRO VALENCIA",
+            "seccion": "090",
+            "colonia": "Col. Campestre",
+            "latitud": 19.0883,
+            "longitud": -102.3564,
+            "origen_coordenadas": "estimacion_apatzingan",
+            "precision_gps": 12,
+            "metodo_deteccion": "poligono_ine_exacto",
+            "fecha_hora": "2026-11-18T23:31:55.018Z",
+            "plantilla_id": "plantilla_hugo_oficial_v1",
+            "plantilla_nombre": "Encuesta Territorial Hugo Molina (Oficial 7 Pasos)",
+            "conoce_hugo": 1,
+            "percepcion_hugo": "5_muy_positiva",
+            "votaria_por_el": "si",
+            "plataforma_politica": "morena",
+            "desea_sumarse": 1,
+            "nombre_contacto": "Valentin lechuga eduardo",
+            "whatsapp_contacto": "4535162949",
+            "quiere_lona": 1,
+            "quiere_ser_casilla": 1,
+            "tipo_problema": "alumbrado",
+            "problemas_seleccionados": [
+              "alumbrado"
+            ],
+            "respuestas_dinamicas": "{\"problemas_seleccionados\":[\"alumbrado\"],\"desea_sumarse\":1,\"nombre_contacto\":\"Valentin lechuga eduardo\",\"whatsapp_contacto\":\"4535162949\",\"quiere_lona\":1,\"quiere_ser_casilla\":\"no\",\"conoce_hugo\":\"si\",\"conoce_candidato\":1,\"percepcion_hugo\":\"5_muy_positiva\",\"percepcion_candidato\":\"5_muy_positiva\",\"votaria_por_el\":\"si\",\"plataforma_politica\":\"morena\"}"
           }
         }
       }
