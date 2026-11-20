@@ -1,6 +1,7 @@
 {
-  "servidorTimestamp": 1794851716413,
-  "total": 17,
+  "servidorTimestamp": 1795157296407,
+  "total": 19,
+  "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
       "syncId": "SYNC-TEST-1794728262220",
@@ -350,6 +351,181 @@
         "mensaje": "MENSAJE DE PRUEBA PARA TODOS, HOLA",
         "remitente": "Ing. Andrés Anuar (Admin System) · Coordinación",
         "fecha_hora": "2026-11-16T17:55:16.325Z"
+      }
+    },
+    {
+      "folio": "INC-CAP-MWOM0VND",
+      "tipo": "ALERTA_SEGURIDAD_CAPTURA",
+      "timestamp": 1795156826018,
+      "fecha_legible": "20/11/2026, 12:40:26 a.m.",
+      "brigadista": "ANDRES-01",
+      "colonia": "Apatzingán",
+      "seccion": "058",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "INC-CAP-MWOM0VND",
+        "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+        "usuario": "Ing. Andrés Anuar (Admin System)",
+        "usuario_id": "ANDRES-01",
+        "rol": "admin_system",
+        "telefono": "453-999-0001",
+        "seccion_app": "Directorio Secreto de PINES Administrativos (Credenciales de Mando)",
+        "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+        "fecha_hora": "2026-11-20T06:40:25.657Z",
+        "fecha_humana": "20 nov 2026, 12:40:25 a.m.",
+        "esDemo": false
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "INC-CAP-MWOM0VND",
+          "ciudadano": "Ciudadano",
+          "whatsapp": "453-999-0001",
+          "colonia": "Apatzingán",
+          "seccion": "058",
+          "intencion_voto": "indeciso",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": false
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "INC-CAP-MWOM0VND",
+          "seccion": "058",
+          "colonia": "Apatzingán",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "indeciso",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "scoring_persuasion": 60,
+          "semaforo_color": "AMARILLO",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "INC-CAP-MWOM0VND",
+          "brigadista_id": "ANDRES-01",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-45OCSXAD",
+          "tamano_bytes": 411,
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "INC-CAP-MWOM0VND",
+            "tipo": "CAPTURA_DE_PANTALLA_DETECTADA",
+            "usuario": "Ing. Andrés Anuar (Admin System)",
+            "usuario_id": "ANDRES-01",
+            "rol": "admin_system",
+            "telefono": "453-999-0001",
+            "seccion_app": "Directorio Secreto de PINES Administrativos (Credenciales de Mando)",
+            "ubicacion": "Col. Lomas del Valle (Secc. 101)",
+            "fecha_hora": "2026-11-20T06:40:25.657Z",
+            "fecha_humana": "20 nov 2026, 12:40:25 a.m.",
+            "esDemo": false
+          }
+        },
+        "karen": {
+          "destinatario": "KAREN-01",
+          "rol": "coordinador_territorial",
+          "titulo": "Coordinación Territorial y Control de Brigadas",
+          "folio": "INC-CAP-MWOM0VND",
+          "brigadista": "ANDRES-01",
+          "seccion": "058",
+          "colonia": "Apatzingán",
+          "coordenadas": "",
+          "maps_url": "",
+          "ciudadano": "Ciudadano",
+          "whatsapp": "453-999-0001",
+          "intencion_voto": "indeciso",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "simpatizante": false
+        }
+      }
+    },
+    {
+      "folio": "ENC-408-0PXC",
+      "tipo": "ANCLAJE_DISPOSITIVO",
+      "timestamp": 1795157289464,
+      "fecha_legible": "20/11/2026, 12:48:09 a.m.",
+      "brigadista": "SERGIO-01",
+      "colonia": "Apatzingán",
+      "seccion": "058",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "usuario_id": "SERGIO-01",
+        "nombre": "Ing. Sergio Ávalos (Estratega)",
+        "firma_hardware": "HM-HW-GW2A0K-594NI5",
+        "fecha": "2026-11-20T06:48:09.457Z"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "ENC-408-0PXC",
+          "ciudadano": "Ing. Sergio Ávalos (Estratega)",
+          "whatsapp": "",
+          "colonia": "Apatzingán",
+          "seccion": "058",
+          "intencion_voto": "indeciso",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": false
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "ENC-408-0PXC",
+          "seccion": "058",
+          "colonia": "Apatzingán",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "indeciso",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "scoring_persuasion": 60,
+          "semaforo_color": "AMARILLO",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "ENC-408-0PXC",
+          "brigadista_id": "SERGIO-01",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-3ZJBBQY0",
+          "tamano_bytes": 142,
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "usuario_id": "SERGIO-01",
+            "nombre": "Ing. Sergio Ávalos (Estratega)",
+            "firma_hardware": "HM-HW-GW2A0K-594NI5",
+            "fecha": "2026-11-20T06:48:09.457Z"
+          }
+        }
       }
     }
   ]
