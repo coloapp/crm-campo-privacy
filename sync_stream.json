@@ -1,6 +1,6 @@
 {
-  "servidorTimestamp": 1795625308578,
-  "total": 46,
+  "servidorTimestamp": 1795628860040,
+  "total": 47,
   "actualizado_por": "Celular Brigadista (Zero-Laptop Cloud Sync)",
   "registros": [
     {
@@ -4144,6 +4144,101 @@
           "demanda_prioritaria": "alumbrado",
           "demanda_detalle": "",
           "simpatizante": true
+        }
+      }
+    },
+    {
+      "folio": "NOT-MWWF25UI",
+      "tipo": "ALERTA_TERRITORIAL",
+      "timestamp": 1795628857805,
+      "fecha_legible": "25/11/2026, 11:47:37 a.m.",
+      "brigadista": "Brigadista Campo",
+      "colonia": "Apatzingán",
+      "seccion": "058",
+      "coordenadas": "",
+      "maps_url": "",
+      "datos": {
+        "id": "NOT-MWWF25UI",
+        "destino": "@ROL:brigadistas",
+        "tipo": "informativa",
+        "titulo": "Saludos",
+        "mensaje": "Este es un mensaje de prueba",
+        "remitente": "Hugo Molina (Regidor / Candidato) · Coordinación",
+        "fecha_hora": "2026-11-25T17:47:37.626Z"
+      },
+      "copias": {
+        "hugo": {
+          "destinatario": "HUGO-01",
+          "rol": "candidato",
+          "titulo": "Resumen Político y Demanda Ciudadana",
+          "folio": "NOT-MWWF25UI",
+          "ciudadano": "Ciudadano",
+          "whatsapp": "",
+          "colonia": "Apatzingán",
+          "seccion": "058",
+          "intencion_voto": "indeciso",
+          "conoce_a_hugo": "Sí",
+          "calificacion": "Buena",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "compromiso_apoyo": "No especificado",
+          "simpatizante": false
+        },
+        "sergio": {
+          "destinatario": "SERGIO-01",
+          "rol": "estratega",
+          "titulo": "Inteligencia Territorial y Scoring Seccional",
+          "folio": "NOT-MWWF25UI",
+          "seccion": "058",
+          "colonia": "Apatzingán",
+          "coordenadas": "",
+          "lat": null,
+          "lng": null,
+          "maps_url": "",
+          "intencion_voto": "indeciso",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "scoring_persuasion": 60,
+          "semaforo_color": "AMARILLO",
+          "tiempo_captura_segundos": 45
+        },
+        "anuar": {
+          "destinatario": "ANDRES-01",
+          "rol": "admin_system",
+          "titulo": "Auditoría Criptográfica y Respaldo de Integridad",
+          "folio": "NOT-MWWF25UI",
+          "brigadista_id": "BRIG-DEFAULT",
+          "device_id": "DEV-UNK",
+          "hash_integridad": "SHA-UGZR382S",
+          "tamano_bytes": 234,
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "registro_completo": {
+            "id": "NOT-MWWF25UI",
+            "destino": "@ROL:brigadistas",
+            "tipo": "informativa",
+            "titulo": "Saludos",
+            "mensaje": "Este es un mensaje de prueba",
+            "remitente": "Hugo Molina (Regidor / Candidato) · Coordinación",
+            "fecha_hora": "2026-11-25T17:47:37.626Z"
+          }
+        },
+        "karen": {
+          "destinatario": "KAREN-01",
+          "rol": "coordinador_territorial",
+          "titulo": "Coordinación Territorial y Control de Brigadas",
+          "folio": "NOT-MWWF25UI",
+          "brigadista": "Brigadista Campo",
+          "seccion": "058",
+          "colonia": "Apatzingán",
+          "coordenadas": "",
+          "maps_url": "",
+          "ciudadano": "Ciudadano",
+          "whatsapp": "",
+          "intencion_voto": "indeciso",
+          "demanda_prioritaria": "Atención General",
+          "demanda_detalle": "",
+          "simpatizante": false
         }
       }
     }
